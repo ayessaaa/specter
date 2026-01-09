@@ -1,0 +1,108 @@
+[gd_scene load_steps=12 format=3 uid="uid://b8atfn0h15glu"]
+
+[ext_resource type="Texture2D" uid="uid://dmb6ithl5jvvk" path="res://assets/sprites/tileset.png" id="1_ijxly"]
+[ext_resource type="Script" uid="uid://bcpgmeyhyk7g1" path="res://assets/scripts/arrow_area.gd" id="1_pi0qt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pi0qt"]
+atlas = ExtResource("1_ijxly")
+region = Rect2(32, 104, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_le8xv"]
+atlas = ExtResource("1_ijxly")
+region = Rect2(40, 104, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sd604"]
+atlas = ExtResource("1_ijxly")
+region = Rect2(48, 104, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71sb0"]
+atlas = ExtResource("1_ijxly")
+region = Rect2(56, 104, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p024p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pi0qt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_le8xv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sd604")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71sb0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sd604")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_le8xv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ijxly"]
+radius = 4.0
+height = 12.0
+
+[sub_resource type="Animation" id="Animation_pi0qt"]
+resource_name = "fade_out"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_le8xv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sd604"]
+_data = {
+&"RESET": SubResource("Animation_le8xv"),
+&"fade_out": SubResource("Animation_pi0qt")
+}
+
+[node name="ArrowArea" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_pi0qt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_p024p")
+autoplay = "default"
+frame_progress = 0.821156
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_ijxly")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_sd604")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

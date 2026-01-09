@@ -9,6 +9,8 @@ const SECOND_JUMP_VELOCITY = -100.0
 const ACCELERATION = 1000.0
 const FRICTION = 500.0
 
+const BOOST = 150
+
 var jump = 0
 var current_dir = 1
 
@@ -28,7 +30,8 @@ func _physics_process(delta: float) -> void:
 		jump += 1
 		velocity.y = JUMP_VELOCITY
 	elif Input.is_action_just_pressed("jump") and jump < 2:
-			velocity.y = SECOND_JUMP_VELOCITY
+		jump += 2
+		velocity.y = SECOND_JUMP_VELOCITY
 
 
 	var direction := Input.get_axis("left", "right")
@@ -46,7 +49,7 @@ func _physics_process(delta: float) -> void:
 		)
 		
 	if Input.is_action_just_pressed("boost"):
-		velocity.x += 100 * current_dir
+		velocity.x += BOOST * current_dir
 		
 	if not is_on_floor():
 		animated_sprite_2d.play("jump")

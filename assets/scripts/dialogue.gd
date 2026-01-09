@@ -5,7 +5,8 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	timer.start()
+	#timer.start()
+	pass
 	#animation_player.play("fade_in")
 
 

@@ -1,6 +1,6 @@
 extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-
+@export var current_dir = 1
 
 const SPEED = 50.0
 const JUMP_VELOCITY = -120.0
@@ -12,7 +12,6 @@ const FRICTION = 500.0
 const BOOST = 150
 
 var jump = 0
-var current_dir = 1
 
 
 func _physics_process(delta: float) -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://nhjxnc34e5km"]
+[gd_scene load_steps=23 format=3 uid="uid://nhjxnc34e5km"]
 
 [ext_resource type="Texture2D" uid="uid://dhtn84pgrnco8" path="res://assets/sprites/player-tile.png" id="1_rwm0n"]
 [ext_resource type="Script" uid="uid://dsins6j6y3a5t" path="res://assets/scripts/player.gd" id="1_s027a"]
@@ -135,6 +135,43 @@ animations = [{
 radius = 3.0
 height = 7.0
 
+[sub_resource type="Animation" id="Animation_s027a"]
+resource_name = "fade_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_14505"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4wcc8"]
+_data = {
+&"RESET": SubResource("Animation_14505"),
+&"fade_out": SubResource("Animation_s027a")
+}
+
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
 collision_layer = 2
@@ -150,3 +187,8 @@ frame_progress = 0.47982794
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3.5)
 shape = SubResource("CapsuleShape2D_s027a")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_4wcc8")
+}

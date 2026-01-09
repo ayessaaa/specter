@@ -12,3 +12,4 @@ extends Node
 	
 
 var dead = false
+var key_collected = false

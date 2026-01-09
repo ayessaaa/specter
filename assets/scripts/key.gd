@@ -1,0 +1,17 @@
+extends Area2D
+@onready var player: CharacterBody2D = get_parent().get_node("Player")
+
+var follow_player = false
+const SPEED = 10.0
+
+func _process(delta: float) -> void:
+	if follow_player:
+		
+		if player.current_dir == 1:
+			position = lerp(position, Vector2(player.position.x-7, player.position.y-5), SPEED * delta)
+		elif player.current_dir == -1:
+			position = lerp(position, Vector2(player.position.x+7, player.position.y-5), SPEED * delta)
+		
+func _on_body_entered(body: Node2D) -> void:
+	follow_player = true
+	Global.key_collected = true

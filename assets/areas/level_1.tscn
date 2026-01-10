@@ -346,7 +346,7 @@ limit_smoothed = true
 position_smoothing_enabled = true
 
 [node name="LevelCompleted" parent="Player/Camera2D" instance=ExtResource("14_i21lu")]
-position = Vector2(2, -1)
+visible = false
 
 [node name="Dialogue" type="Node2D" parent="Player/Camera2D"]
 visible = false

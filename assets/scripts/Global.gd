@@ -13,3 +13,8 @@ extends Node
 
 var dead = false
 var key_collected = false
+
+var level_completed = false
+var level = 1
+
+var restart_lvl = false

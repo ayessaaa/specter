@@ -1,6 +1,7 @@
 extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @export var current_dir = 1
+@onready var timer: Timer = $Timer
 
 const SPEED = 50.0
 const JUMP_VELOCITY = -120.0
@@ -12,6 +13,10 @@ const FRICTION = 500.0
 const BOOST = 150
 
 var jump = 0
+
+func _ready() -> void:
+	Global.dead = false
+	Global.key_collected = false
 
 
 func _physics_process(delta: float) -> void:
@@ -68,3 +73,18 @@ func _physics_process(delta: float) -> void:
 		
 
 	move_and_slide()
+
+
+func _on_spikes_body_entered(body: Node2D) -> void:
+	animated_sprite_2d.play("dead")
+	Global.dead = true
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if animated_sprite_2d.animation == "dead":
+		timer.start()
+
+
+func _on_timer_timeout() -> void:
+	Global.restart_lvl = true
+	

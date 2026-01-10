@@ -80,6 +80,8 @@ func _physics_process(delta: float) -> void:
 func _on_spikes_body_entered(body: Node2D) -> void:
 	animated_sprite_2d.play("dead")
 	Global.dead = true
+	Global.deaths += 1
+	print("die")
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:

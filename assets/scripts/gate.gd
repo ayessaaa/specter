@@ -6,7 +6,9 @@ extends Area2D
 
 func _on_body_entered(body: Node2D) -> void:
 	if Global.key_collected:
+		Global.level_completed = true
 		animated_sprite_2d.play("open")
+		Global.level += 1
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:

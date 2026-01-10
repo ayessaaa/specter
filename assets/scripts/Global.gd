@@ -18,3 +18,5 @@ var level_completed = false
 var level = 1
 
 var restart_lvl = false
+
+var deaths = 0

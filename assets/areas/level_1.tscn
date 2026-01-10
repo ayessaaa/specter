@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://vafip83jovvm"]
+[gd_scene load_steps=36 format=4 uid="uid://vafip83jovvm"]
 
 [ext_resource type="PackedScene" uid="uid://nhjxnc34e5km" path="res://assets/scenes/player.tscn" id="1_bpckr"]
 [ext_resource type="Texture2D" uid="uid://bphryqh6g2lkb" path="res://assets/sprites/bg.png" id="1_i37bn"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cjs8bfhrh3cvb" path="res://assets/scenes/gate.tscn" id="13_g1ds8"]
 [ext_resource type="PackedScene" uid="uid://d2gxebgap71k7" path="res://assets/areas/level_completed.tscn" id="14_i21lu"]
 [ext_resource type="Texture2D" uid="uid://d20swary645gy" path="res://assets/sprites/progress.png" id="15_ayk4g"]
+[ext_resource type="FontFile" uid="uid://cddtgeh3yd7k8" path="res://assets/fonts/ari-w9500-display.ttf" id="16_ayk4g"]
 
 [sub_resource type="Animation" id="Animation_634w1"]
 length = 0.001
@@ -360,7 +361,7 @@ region = Rect2(0, 72, 24, 8)
 atlas = ExtResource("15_ayk4g")
 region = Rect2(0, 80, 24, 8)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_1h6hh"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_n8fvd"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -423,6 +424,7 @@ texture = ExtResource("1_i37bn")
 
 [node name="Player" parent="." instance=ExtResource("1_bpckr")]
 position = Vector2(0, -4)
+current_dir = 1
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, -14)
@@ -538,9 +540,89 @@ position = Vector2(197, -116)
 [node name="BoostCooldown" type="AnimatedSprite2D" parent="CanvasLayer"]
 position = Vector2(90, 613.99994)
 scale = Vector2(6.4999995, 6.4999995)
-sprite_frames = SubResource("SpriteFrames_1h6hh")
+sprite_frames = SubResource("SpriteFrames_n8fvd")
 autoplay = "default"
-frame = 10
-frame_progress = 1.0
+
+[node name="Tutorial" type="Sprite2D" parent="CanvasLayer"]
+visible = false
+position = Vector2(1005, 98)
+scale = Vector2(0.505833, 0.26153848)
+texture = ExtResource("8_djlsd")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+visible = false
+offset_left = 904.99994
+offset_top = 55.0
+offset_right = 944.99994
+offset_bottom = 66.0
+scale = Vector2(1.9902526, 1.9902526)
+theme_override_fonts/font = ExtResource("5_01dqv")
+theme_override_font_sizes/font_size = 11
+text = "w"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+visible = false
+offset_left = 862.99994
+offset_top = 81.99999
+offset_right = 902.99994
+offset_bottom = 92.99999
+scale = Vector2(1.9902526, 1.9902526)
+theme_override_fonts/font = ExtResource("5_01dqv")
+theme_override_font_sizes/font_size = 11
+text = "a"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="CanvasLayer"]
+visible = false
+offset_left = 942.99994
+offset_top = 81.99999
+offset_right = 982.99994
+offset_bottom = 92.99999
+scale = Vector2(1.9902526, 1.9902526)
+theme_override_fonts/font = ExtResource("5_01dqv")
+theme_override_font_sizes/font_size = 11
+text = "d"
+horizontal_alignment = 1
+
+[node name="Minutes" type="Label" parent="CanvasLayer"]
+offset_left = 22.999996
+offset_top = 24.0
+offset_right = 57.999996
+offset_bottom = 35.0
+scale = Vector2(2.3635128, 2.205264)
+theme_override_fonts/font = ExtResource("16_ayk4g")
+theme_override_font_sizes/font_size = 11
+text = "00"
+
+[node name="Seconds" type="Label" parent="CanvasLayer"]
+offset_left = 75.99999
+offset_top = 24.0
+offset_right = 110.99999
+offset_bottom = 35.0
+scale = Vector2(2.3635128, 2.205264)
+theme_override_fonts/font = ExtResource("16_ayk4g")
+theme_override_font_sizes/font_size = 11
+text = "00"
+
+[node name="Colon" type="Label" parent="CanvasLayer"]
+offset_left = 65.0
+offset_top = 24.0
+offset_right = 100.0
+offset_bottom = 35.0
+scale = Vector2(2.3635128, 2.205264)
+theme_override_fonts/font = ExtResource("16_ayk4g")
+theme_override_font_sizes/font_size = 11
+text = ":"
+
+[node name="Deaths" type="Label" parent="CanvasLayer"]
+offset_left = 22.999996
+offset_top = 57.0
+offset_right = 50.435177
+offset_bottom = 68.0
+scale = Vector2(2.3635128, 2.205264)
+theme_override_fonts/font = ExtResource("16_ayk4g")
+theme_override_font_sizes/font_size = 11
+text = "0"
 
 [connection signal="timeout" from="Player/Camera2D/Dialogue/Timer" to="Player/Camera2D/Dialogue" method="_on_timer_timeout"]

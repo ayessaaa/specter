@@ -15,8 +15,16 @@ var dead = false
 var key_collected = false
 
 var level_completed = false
-var level = 1
+var level = 2
 
 var restart_lvl = false
 
 var deaths = 0
+
+var lvl_stopwatch = 0.0
+
+var position_array = []
+var position_array_current = []
+
+var direction_array = []
+var direction_array_current = []

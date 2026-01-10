@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://vafip83jovvm"]
+[gd_scene load_steps=37 format=4 uid="uid://vafip83jovvm"]
 
 [ext_resource type="PackedScene" uid="uid://nhjxnc34e5km" path="res://assets/scenes/player.tscn" id="1_bpckr"]
 [ext_resource type="Texture2D" uid="uid://bphryqh6g2lkb" path="res://assets/sprites/bg.png" id="1_i37bn"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://d2gxebgap71k7" path="res://assets/areas/level_completed.tscn" id="14_i21lu"]
 [ext_resource type="Texture2D" uid="uid://d20swary645gy" path="res://assets/sprites/progress.png" id="15_ayk4g"]
 [ext_resource type="FontFile" uid="uid://cddtgeh3yd7k8" path="res://assets/fonts/ari-w9500-display.ttf" id="16_ayk4g"]
+[ext_resource type="PackedScene" uid="uid://c56psrlw6rj4r" path="res://assets/scenes/ghost.tscn" id="17_jlkhb"]
 
 [sub_resource type="Animation" id="Animation_634w1"]
 length = 0.001
@@ -624,5 +625,9 @@ scale = Vector2(2.3635128, 2.205264)
 theme_override_fonts/font = ExtResource("16_ayk4g")
 theme_override_font_sizes/font_size = 11
 text = "0"
+
+[node name="Ghost" parent="." instance=ExtResource("17_jlkhb")]
+visible = false
+position = Vector2(24, 0)
 
 [connection signal="timeout" from="Player/Camera2D/Dialogue/Timer" to="Player/Camera2D/Dialogue" method="_on_timer_timeout"]

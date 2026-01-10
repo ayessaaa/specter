@@ -181,9 +181,8 @@ current_dir = null
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_0gfpk")
-animation = &"jump"
+animation = &"dead"
 autoplay = "idle"
-frame_progress = 0.47982794
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3.5)

@@ -11,8 +11,8 @@ var levels_array = [LEVEL_1, LEVEL_2]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#lvl1_camera.make_current()
-	var lvl_1 = LEVEL_1.instantiate()
-	levels.add_child(lvl_1)
+	var lvl = levels_array[Global.level-1].instantiate()
+	levels.add_child(lvl)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

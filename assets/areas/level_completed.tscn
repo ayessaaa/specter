@@ -252,7 +252,7 @@ theme_override_font_sizes/font_size = 11
 text = "DEATHS"
 metadata/_edit_use_anchors_ = true
 
-[node name="Deaths" type="Label" parent="."]
+[node name="TimeLabel" type="Label" parent="."]
 offset_left = -20.0
 offset_top = 8.999998
 offset_right = 119.12305
@@ -263,7 +263,7 @@ theme_override_font_sizes/font_size = 11
 text = "TIME"
 metadata/_edit_use_anchors_ = true
 
-[node name="TimeLabel" type="Label" parent="."]
+[node name="Deaths" type="Label" parent="."]
 offset_top = 4.0
 offset_right = 70.13074
 offset_bottom = 15.0

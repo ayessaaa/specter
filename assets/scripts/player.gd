@@ -2,6 +2,7 @@ extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @export var current_dir = 1
 @onready var timer: Timer = $Timer
+@onready var boost_cooldown: AnimatedSprite2D = $"../CanvasLayer/BoostCooldown"
 
 const SPEED = 50.0
 const JUMP_VELOCITY = -120.0
@@ -52,8 +53,9 @@ func _physics_process(delta: float) -> void:
 			FRICTION * delta
 		)
 		
-	if Input.is_action_just_pressed("boost"):
+	if Input.is_action_just_pressed("boost") and boost_cooldown.frame == 10:
 		velocity.x += BOOST * current_dir
+		boost_cooldown.play("default")
 		
 	if not is_on_floor():
 		animated_sprite_2d.play("jump")

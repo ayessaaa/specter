@@ -28,3 +28,5 @@ var position_array_current = []
 
 var direction_array = []
 var direction_array_current = []
+
+var last_key_pos = null

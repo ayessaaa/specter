@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=4 uid="uid://d2gxebgap71k7"]
 
-[ext_resource type="Script" uid="uid://x0q0cf62y0o8" path="res://assets/areas/level_completed.gd" id="1_6jlj3"]
+[ext_resource type="Script" uid="uid://x0q0cf62y0o8" path="res://assets/scripts/level_completed.gd" id="1_6jlj3"]
 [ext_resource type="Texture2D" uid="uid://dmb6ithl5jvvk" path="res://assets/sprites/tileset.png" id="1_flyi5"]
 [ext_resource type="FontFile" uid="uid://x2tle50ieve6" path="res://assets/fonts/ari-w9500-bold.ttf" id="2_klgpe"]
 

@@ -5,6 +5,7 @@ extends Node2D
 @onready var deaths_lvl: Label = $Player/Camera2D/LevelCompleted/Deaths
 @onready var time_lvl: Label = $Player/Camera2D/LevelCompleted/Time
 @onready var player: CharacterBody2D = $Player
+@onready var key: Area2D = $Key
 
 const GHOST = preload("uid://c56psrlw6rj4r")
 
@@ -27,6 +28,9 @@ func _ready() -> void:
 		var ghost = GHOST.instantiate()
 		add_child(ghost)
 		has_ghost = true
+		
+	if Global.last_key_pos != null:
+		key.position = Global.last_key_pos
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -63,12 +67,13 @@ func _process(delta: float) -> void:
 				position_index += 1
 			else:
 				get_node("Ghost/AnimatedSprite2D").play("done")
-				
+				get_node("Ghost/AnimationPlayer").play("loop")
 				
 			Global.position_array_current.append(player.position)
 			Global.direction_array_current.append(player.current_dir)
 		else:
 			Global.position_array.append(player.position)
 			Global.direction_array.append(player.current_dir)
+			Global.last_key_pos = key.position
 			
 	

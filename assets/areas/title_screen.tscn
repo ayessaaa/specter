@@ -1,0 +1,401 @@
+[gd_scene load_steps=11 format=3 uid="uid://djgf0jno1q4om"]
+
+[ext_resource type="Texture2D" uid="uid://bx63pthubf2bh" path="res://assets/sprites/Frame 8.png" id="1_5pr4x"]
+[ext_resource type="Texture2D" uid="uid://dfukgb0trlc4u" path="res://assets/sprites/specter logo.png" id="2_6sgwd"]
+[ext_resource type="Texture2D" uid="uid://cfki2so134vg5" path="res://assets/sprites/skull 1.png" id="3_ixe74"]
+[ext_resource type="FontFile" uid="uid://cddtgeh3yd7k8" path="res://assets/fonts/ari-w9500-display.ttf" id="4_tbwg7"]
+
+[sub_resource type="Animation" id="Animation_6sgwd"]
+resource_name = "fade_in"
+length = 4.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Logo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(590, 220)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Logo:scale")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.30094787, 0.30094787), Vector2(0.4407583, 0.4407583), Vector2(0.58056873, 0.58056873), Vector2(0.7203792, 0.7203792), Vector2(0.86018956, 0.86018956), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Logo:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Skull:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.2333333),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/Skull:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1, 1.6, 1.8333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1227, 215), Vector2(594.7138, 215), Vector2(609, 215)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/Options/Levels2:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.8333334, 2.2333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer/Options/Play:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(2.5, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CanvasLayer/Options/Levels:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(3, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CanvasLayer/Options/Settings:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(3.5, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CanvasLayer/Options/Credits:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(4, 4.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ixe74"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Logo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(590, 220)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Logo:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.30094787, 0.30094787)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Logo:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Skull:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/Skull:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1227, 215)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/Options/Levels2:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer/Options/Play:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CanvasLayer/Options/Levels:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CanvasLayer/Options/Settings:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CanvasLayer/Options/Credits:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tbwg7"]
+_data = {
+&"RESET": SubResource("Animation_ixe74"),
+&"fade_in": SubResource("Animation_6sgwd")
+}
+
+[sub_resource type="Animation" id="Animation_tbwg7"]
+resource_name = "loop"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Options/Levels2:scale")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.88802695, 0.88802695), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_nst8e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Options/Levels2:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.88802695, 0.88802695)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wx6pt"]
+_data = {
+&"RESET": SubResource("Animation_nst8e"),
+&"loop": SubResource("Animation_tbwg7")
+}
+
+[node name="TitleScreen" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BG" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(576, 324)
+texture = ExtResource("1_5pr4x")
+
+[node name="Logo" type="Sprite2D" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(590, 220)
+scale = Vector2(0.30094787, 0.30094787)
+texture = ExtResource("2_6sgwd")
+
+[node name="Skull" type="Sprite2D" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(1227, 215)
+texture = ExtResource("3_ixe74")
+
+[node name="Options" type="Node2D" parent="CanvasLayer"]
+
+[node name="Play" type="Label" parent="CanvasLayer/Options"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 527.0
+offset_top = 392.0
+offset_right = 662.0
+offset_bottom = 447.0
+theme_override_colors/font_shadow_color = Color(0.09803922, 0.09411765, 0.15294118, 1)
+theme_override_constants/shadow_offset_x = 6
+theme_override_constants/shadow_offset_y = 7
+theme_override_fonts/font = ExtResource("4_tbwg7")
+theme_override_font_sizes/font_size = 44
+text = "Play"
+
+[node name="Levels" type="Label" parent="CanvasLayer/Options"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 527.0
+offset_top = 462.0
+offset_right = 737.0
+offset_bottom = 517.0
+theme_override_colors/font_color = Color(0.54509807, 0.60784316, 0.7058824, 1)
+theme_override_colors/font_shadow_color = Color(0.09803922, 0.09411765, 0.15294118, 1)
+theme_override_constants/shadow_offset_x = 6
+theme_override_constants/shadow_offset_y = 7
+theme_override_fonts/font = ExtResource("4_tbwg7")
+theme_override_font_sizes/font_size = 33
+text = "Levels"
+
+[node name="Settings" type="Label" parent="CanvasLayer/Options"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 527.0
+offset_top = 516.0
+offset_right = 737.0
+offset_bottom = 571.0
+theme_override_colors/font_color = Color(0.54509807, 0.60784316, 0.7058824, 1)
+theme_override_colors/font_shadow_color = Color(0.09803922, 0.09411765, 0.15294118, 1)
+theme_override_constants/shadow_offset_x = 6
+theme_override_constants/shadow_offset_y = 7
+theme_override_fonts/font = ExtResource("4_tbwg7")
+theme_override_font_sizes/font_size = 33
+text = "Settings"
+
+[node name="Credits" type="Label" parent="CanvasLayer/Options"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 527.0
+offset_top = 571.0
+offset_right = 737.0
+offset_bottom = 626.0
+theme_override_colors/font_color = Color(0.54509807, 0.60784316, 0.7058824, 1)
+theme_override_colors/font_shadow_color = Color(0.09803922, 0.09411765, 0.15294118, 1)
+theme_override_constants/shadow_offset_x = 6
+theme_override_constants/shadow_offset_y = 7
+theme_override_fonts/font = ExtResource("4_tbwg7")
+theme_override_font_sizes/font_size = 33
+text = "Credits"
+
+[node name="Levels2" type="Label" parent="CanvasLayer/Options"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 812.0
+offset_top = 291.0
+offset_right = 980.0
+offset_bottom = 324.0
+scale = Vector2(0.88802695, 0.88802695)
+pivot_offset = Vector2(83.89923, 16.998413)
+theme_override_colors/font_color = Color(0.54509807, 0.60784316, 0.7058824, 1)
+theme_override_colors/font_shadow_color = Color(0.09803922, 0.09411765, 0.15294118, 1)
+theme_override_constants/shadow_offset_x = 6
+theme_override_constants/shadow_offset_y = 7
+theme_override_fonts/font = ExtResource("4_tbwg7")
+theme_override_font_sizes/font_size = 33
+text = "<3 yessa"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_tbwg7")
+}
+autoplay = "fade_in"
+
+[node name="SubtitleAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_wx6pt")
+}
+autoplay = "loop"

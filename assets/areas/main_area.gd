@@ -5,14 +5,16 @@ extends Node2D
 @onready var levels: Node2D = $Levels
 const LEVEL_1 = preload("uid://vafip83jovvm")
 const LEVEL_2 = preload("uid://cjx1iye3r2irn")
+const LEVEL_3 = preload("uid://rmes7jsjtd3s")
 
-var levels_array = [LEVEL_1, LEVEL_2]
+var levels_array = [LEVEL_1, LEVEL_2, LEVEL_3]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#lvl1_camera.make_current()
-	var lvl = levels_array[Global.level-1].instantiate()
-	levels.add_child(lvl)
+	#var lvl = levels_array[Global.level-1].instantiate()
+	#levels.add_child(lvl)
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

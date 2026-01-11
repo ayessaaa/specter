@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cmejr6gbnm7vd"]
+[gd_scene load_steps=3 format=3 uid="uid://cmejr6gbnm7vd"]
 
 [ext_resource type="Script" uid="uid://c26nx7g7wnkbq" path="res://assets/areas/main_area.gd" id="1_2hqj5"]
+[ext_resource type="PackedScene" uid="uid://djgf0jno1q4om" path="res://assets/areas/title_screen.tscn" id="2_symrv"]
 
 [node name="MainArea" type="Node2D"]
 script = ExtResource("1_2hqj5")
 
 [node name="Levels" type="Node2D" parent="."]
+
+[node name="TitleScreen" parent="." instance=ExtResource("2_symrv")]

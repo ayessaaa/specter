@@ -15,7 +15,7 @@ var dead = false
 var key_collected = false
 
 var level_completed = false
-var level = 2
+var level = 3
 
 var restart_lvl = false
 

@@ -8,7 +8,7 @@ extends Node2D
 @onready var key: Area2D = $Key
 @onready var cam_animation: AnimationPlayer = $CamAnimation
 
-const GHOST = preload("uid://c56psrlw6rj4r")
+const GHOST = preload("res://assets/scenes/ghost.tscn")
 
 var mins = 0
 var secs = 0

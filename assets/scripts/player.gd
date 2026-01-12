@@ -19,6 +19,8 @@ const FRICTION = 500.0
 
 const BOOST = 150
 
+var is_boost = false
+
 var jump = 0
 
 func _ready() -> void:
@@ -72,16 +74,19 @@ func _physics_process(delta: float) -> void:
 		
 		
 	if Input.is_action_just_pressed("boost") and boost_cooldown.frame == 10:
+		animated_sprite_2d.play("boost")
 		velocity.x += BOOST * current_dir
 		boost_cooldown.play("default")
 		boost_sfx.play()
+		is_boost = true
 		
-	if not is_on_floor():
-		animated_sprite_2d.play("jump")
-	elif direction != 0:
-		animated_sprite_2d.play("walking")
-	else:
-		animated_sprite_2d.play("idle")
+	if !is_boost:
+		if not is_on_floor():
+			animated_sprite_2d.play("jump")
+		elif direction != 0:
+			animated_sprite_2d.play("walking")
+		else:
+			animated_sprite_2d.play("idle")
 
 	# Flip sprite
 	if direction < 0:
@@ -108,6 +113,8 @@ func _on_spikes_body_entered(body: Node2D) -> void:
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if animated_sprite_2d.animation == "dead":
 		timer.start()
+	elif animated_sprite_2d.animation == "boost":
+		is_boost = false
 
 
 func _on_timer_timeout() -> void:

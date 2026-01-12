@@ -1,12 +1,21 @@
-[gd_scene load_steps=28 format=3 uid="uid://nhjxnc34e5km"]
+[gd_scene load_steps=31 format=3 uid="uid://nhjxnc34e5km"]
 
 [ext_resource type="Texture2D" uid="uid://dhtn84pgrnco8" path="res://assets/sprites/player-tile.png" id="1_rwm0n"]
 [ext_resource type="Script" uid="uid://dsins6j6y3a5t" path="res://assets/scripts/player.gd" id="1_s027a"]
+[ext_resource type="Texture2D" uid="uid://dmb6ithl5jvvk" path="res://assets/sprites/tileset.png" id="2_o5c66"]
 [ext_resource type="AudioStream" uid="uid://bmlvayf4ofmj1" path="res://assets/audio/jumplanding-398256_q9aM8zu9.mp3" id="3_4wcc8"]
 [ext_resource type="AudioStream" uid="uid://c1ohvpb5v5mi0" path="res://assets/audio/retro-hurt-2-236675.mp3" id="4_0gfpk"]
 [ext_resource type="AudioStream" uid="uid://bgen5lhee4gi0" path="res://assets/audio/whoosh-effect-382717_RMAwo7Hs.mp3" id="4_8sknh"]
 [ext_resource type="AudioStream" uid="uid://cnmio4vgnt731" path="res://assets/audio/running-on-concrete-268478_SwYzZHdx.mp3" id="6_0gfpk"]
 [ext_resource type="AudioStream" uid="uid://cb6f68tynjy3y" path="res://assets/audio/jump-landing-30946_SyAGOhjl.mp3" id="7_0hrit"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ratp2"]
+atlas = ExtResource("2_o5c66")
+region = Rect2(144, 56, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_84enu"]
+atlas = ExtResource("2_o5c66")
+region = Rect2(152, 56, 8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_60g6h"]
 atlas = ExtResource("1_rwm0n")
@@ -70,6 +79,20 @@ region = Rect2(24, 16, 8, 8)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0gfpk"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ratp2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_84enu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ratp2")
+}],
+"loop": false,
+"name": &"boost",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_60g6h")
@@ -185,8 +208,10 @@ script = ExtResource("1_s027a")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_0gfpk")
-animation = &"dead"
+animation = &"boost"
 autoplay = "idle"
+frame = 1
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3.5)
@@ -217,5 +242,8 @@ parameters/looping = true
 [node name="LandingSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_0hrit")
 
+[node name="BoostTimer" type="Timer" parent="."]
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="BoostTimer" to="." method="_on_dash_timer_timeout"]

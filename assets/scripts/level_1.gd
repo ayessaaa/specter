@@ -1,6 +1,5 @@
 extends Node2D
 @onready var player: CharacterBody2D = $Player
-const LEVEL_2 = preload("uid://cjx1iye3r2irn")
 @onready var boost_cooldown: AnimatedSprite2D = $CanvasLayer/BoostCooldown
 @onready var deaths: Label = $CanvasLayer/Deaths
 @onready var minutes: Label = $CanvasLayer/Minutes

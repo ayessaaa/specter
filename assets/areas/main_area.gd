@@ -3,10 +3,11 @@ extends Node2D
 @onready var level_2: Node2D = $Level2
 @onready var lvl1_camera: Camera2D = $Level1/Player/Camera2D
 @onready var levels: Node2D = $Levels
-const LEVEL_1 = preload("uid://vafip83jovvm")
-const LEVEL_2 = preload("uid://cjx1iye3r2irn")
-const LEVEL_3 = preload("uid://rmes7jsjtd3s")
+const LEVEL_1 = preload("res://assets/areas/level_1.tscn")
+const LEVEL_2 = preload("res://assets/areas/level_2.tscn")
+const LEVEL_3 = preload("res://assets/areas/level_3.tscn")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+
 
 var levels_array = [LEVEL_1, LEVEL_2, LEVEL_3]
 

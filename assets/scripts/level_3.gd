@@ -60,8 +60,6 @@ func _process(delta: float) -> void:
 	if !Global.dead:
 		if len(Global.position_array) > 0 and has_ghost:
 			if len(Global.position_array) > position_index:
-				print(len(Global.position_array))
-				print(len(Global.direction_array))
 				get_node("Ghost").position = Global.position_array[position_index]
 				if Global.direction_array[position_index] == 1:
 					get_node("Ghost/AnimatedSprite2D").flip_h = false

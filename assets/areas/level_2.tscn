@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://cjx1iye3r2irn"]
+[gd_scene load_steps=42 format=4 uid="uid://cjx1iye3r2irn"]
 
 [ext_resource type="Script" uid="uid://c2uq3vqxbms02" path="res://assets/scripts/level_2.gd" id="1_a84d6"]
 [ext_resource type="Texture2D" uid="uid://bphryqh6g2lkb" path="res://assets/sprites/bg.png" id="1_fchq4"]
@@ -18,6 +18,7 @@
 [ext_resource type="FontFile" uid="uid://cddtgeh3yd7k8" path="res://assets/fonts/ari-w9500-display.ttf" id="16_adnl1"]
 [ext_resource type="Texture2D" uid="uid://bn0mfs73ol7wh" path="res://assets/sprites/clock.png" id="17_6uphn"]
 [ext_resource type="Texture2D" uid="uid://cjke6iqgmtate" path="res://assets/sprites/skull.png" id="18_mraj0"]
+[ext_resource type="AudioStream" uid="uid://byiqgutsmp4wi" path="res://assets/audio/sound-of-dripping-water-from-stalactites-in-a-cave-hd-262342.mp3" id="20_filp7"]
 
 [sub_resource type="Animation" id="Animation_634w1"]
 length = 0.001
@@ -404,21 +405,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Animation" id="Animation_pwk46"]
-resource_name = "fade_in"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Player/Camera2D:offset")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.7, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 100), Vector2(0, -2), Vector2(0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_ld3ys"]
 length = 0.001
 tracks/0/type = "value"
@@ -432,6 +418,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_pwk46"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player/Camera2D:offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 100), Vector2(0, -2), Vector2(0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8pqon"]
@@ -462,7 +463,6 @@ texture = ExtResource("1_fchq4")
 
 [node name="Player" parent="." instance=ExtResource("2_a84d6")]
 position = Vector2(0, -4)
-current_dir = 1
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, -14)
@@ -740,6 +740,14 @@ texture = ExtResource("18_mraj0")
 libraries = {
 &"": SubResource("AnimationLibrary_8pqon")
 }
+
+[node name="Audios" type="Node2D" parent="."]
+
+[node name="DrippingMusic" type="AudioStreamPlayer2D" parent="Audios"]
+stream = ExtResource("20_filp7")
+volume_db = -5.0
+autoplay = true
+parameters/looping = true
 
 [connection signal="timeout" from="Player/Camera2D/Dialogue/Timer" to="Player/Camera2D/Dialogue" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Spikes" to="Player" method="_on_spikes_body_entered"]

@@ -1,7 +1,12 @@
-[gd_scene load_steps=23 format=3 uid="uid://nhjxnc34e5km"]
+[gd_scene load_steps=28 format=3 uid="uid://nhjxnc34e5km"]
 
 [ext_resource type="Texture2D" uid="uid://dhtn84pgrnco8" path="res://assets/sprites/player-tile.png" id="1_rwm0n"]
 [ext_resource type="Script" uid="uid://dsins6j6y3a5t" path="res://assets/scripts/player.gd" id="1_s027a"]
+[ext_resource type="AudioStream" uid="uid://bmlvayf4ofmj1" path="res://assets/audio/jumplanding-398256_q9aM8zu9.mp3" id="3_4wcc8"]
+[ext_resource type="AudioStream" uid="uid://c1ohvpb5v5mi0" path="res://assets/audio/retro-hurt-2-236675.mp3" id="4_0gfpk"]
+[ext_resource type="AudioStream" uid="uid://bgen5lhee4gi0" path="res://assets/audio/whoosh-effect-382717_RMAwo7Hs.mp3" id="4_8sknh"]
+[ext_resource type="AudioStream" uid="uid://cnmio4vgnt731" path="res://assets/audio/running-on-concrete-268478_SwYzZHdx.mp3" id="6_0gfpk"]
+[ext_resource type="AudioStream" uid="uid://cb6f68tynjy3y" path="res://assets/audio/jump-landing-30946_SyAGOhjl.mp3" id="7_0hrit"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_60g6h"]
 atlas = ExtResource("1_rwm0n")
@@ -176,7 +181,6 @@ _data = {
 z_index = 5
 collision_layer = 2
 script = ExtResource("1_s027a")
-current_dir = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -4)
@@ -195,6 +199,23 @@ libraries = {
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.25
+
+[node name="JumpSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_4wcc8")
+
+[node name="DeathSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_0gfpk")
+
+[node name="BoostSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_8sknh")
+
+[node name="RunningSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_0gfpk")
+volume_db = -5.0
+parameters/looping = true
+
+[node name="LandingSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_0hrit")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -22,10 +22,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Global.level_completed:
 		if Input.is_action_just_pressed("boost"):
-			var lvl = levels_array[Global.level-1].instantiate()
-			levels.add_child(lvl)
-			levels.get_child(0).queue_free()
+			animation_player.play("blackin")
 			Global.level_completed = false
+			
 	if Global.restart_lvl:
 		Global.restart_lvl = false
 		print(Global.level)
@@ -38,3 +37,12 @@ func _process(delta: float) -> void:
 		var lvl = levels_array[Global.level-1].instantiate()
 		levels.add_child(lvl)
 		Global.play_pressed = false
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "blackin":
+		var lvl = levels_array[Global.level-1].instantiate()
+		levels.add_child(lvl)
+		levels.get_child(0).queue_free()
+		animation_player.play("blackout")
+	

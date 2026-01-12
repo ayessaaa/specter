@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dxwrbee330gma"]
+[gd_scene load_steps=9 format=3 uid="uid://dxwrbee330gma"]
 
 [ext_resource type="Script" uid="uid://cg5qqtn0wtfjg" path="res://assets/scripts/key.gd" id="1_eqs4p"]
 [ext_resource type="Texture2D" uid="uid://dmb6ithl5jvvk" path="res://assets/sprites/tileset.png" id="1_nd7hg"]
+[ext_resource type="AudioStream" uid="uid://ciucc0umdw1jl" path="res://assets/audio/retro-coin-4-236671.mp3" id="3_frhpv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eqs4p"]
 atlas = ExtResource("1_nd7hg")
@@ -52,5 +53,8 @@ frame_progress = 0.5527631
 position = Vector2(0, -1)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_52fri")
+
+[node name="KeyCollectSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_frhpv")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

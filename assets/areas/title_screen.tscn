@@ -1,11 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://djgf0jno1q4om"]
+[gd_scene load_steps=17 format=3 uid="uid://djgf0jno1q4om"]
 
 [ext_resource type="Texture2D" uid="uid://bx63pthubf2bh" path="res://assets/sprites/Frame 8.png" id="1_5pr4x"]
 [ext_resource type="Script" uid="uid://bbl1gcag2yffk" path="res://assets/scripts/title_screen.gd" id="1_ixe74"]
 [ext_resource type="Texture2D" uid="uid://dfukgb0trlc4u" path="res://assets/sprites/specter logo.png" id="2_6sgwd"]
 [ext_resource type="Texture2D" uid="uid://cfki2so134vg5" path="res://assets/sprites/skull 1.png" id="3_ixe74"]
 [ext_resource type="FontFile" uid="uid://cddtgeh3yd7k8" path="res://assets/fonts/ari-w9500-display.ttf" id="4_tbwg7"]
-[ext_resource type="AudioStream" uid="uid://ri7n8gcaf10v" path="res://assets/audio/ethereal-uplifting-loop-275529 (1) (1).mp3" id="6_tbwg7"]
 [ext_resource type="AudioStream" uid="uid://ceh6lns5ot011" path="res://assets/audio/whoosh-end-384629.mp3" id="7_nst8e"]
 [ext_resource type="AudioStream" uid="uid://r31ktj342hwg" path="res://assets/audio/digital-click-357350.mp3" id="8_wx6pt"]
 [ext_resource type="AudioStream" uid="uid://oojp2hln26jt" path="res://assets/audio/video-game-select-337214.mp3" id="9_alhq4"]
@@ -949,12 +948,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_wx6pt")
 }
 autoplay = "loop"
-
-[node name="BGMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_tbwg7")
-volume_db = 5.0
-autoplay = true
-parameters/looping = true
 
 [node name="WhooshSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_nst8e")

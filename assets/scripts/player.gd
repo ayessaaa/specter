@@ -4,6 +4,12 @@ extends CharacterBody2D
 @onready var timer: Timer = $Timer
 @onready var boost_cooldown: AnimatedSprite2D = $"../CanvasLayer/BoostCooldown"
 
+@onready var jump_sfx: AudioStreamPlayer2D = $JumpSFX
+@onready var death_sfx: AudioStreamPlayer2D = $DeathSFX
+@onready var boost_sfx: AudioStreamPlayer2D = $BoostSFX
+@onready var running_sfx: AudioStreamPlayer2D = $RunningSFX
+@onready var landing_sfx: AudioStreamPlayer2D = $LandingSFX
+
 const SPEED = 50.0
 const JUMP_VELOCITY = -120.0
 const SECOND_JUMP_VELOCITY = -100.0
@@ -28,15 +34,19 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	else:
-		jump = 0
+		if jump > 0:
+			landing_sfx.play()
+			jump = 0
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		jump += 1
 		velocity.y = JUMP_VELOCITY
+		jump_sfx.play()
 	elif Input.is_action_just_pressed("jump") and jump < 2:
 		jump += 2
 		velocity.y = SECOND_JUMP_VELOCITY
+		jump_sfx.play()
 
 
 	var direction := Input.get_axis("left", "right")
@@ -46,16 +56,25 @@ func _physics_process(delta: float) -> void:
 			direction * SPEED,
 			ACCELERATION * delta
 		)
+		if is_on_floor(): 
+			if !running_sfx.playing:
+				running_sfx.play()
+		else:
+			running_sfx.stop()
+		
 	else:
 		velocity.x = move_toward(
 			velocity.x,
 			0,
 			FRICTION * delta
 		)
+		running_sfx.stop()
+		
 		
 	if Input.is_action_just_pressed("boost") and boost_cooldown.frame == 10:
 		velocity.x += BOOST * current_dir
 		boost_cooldown.play("default")
+		boost_sfx.play()
 		
 	if not is_on_floor():
 		animated_sprite_2d.play("jump")
@@ -68,6 +87,7 @@ func _physics_process(delta: float) -> void:
 	if direction < 0:
 		animated_sprite_2d.flip_h = true
 		current_dir = -1
+		
 	elif direction > 0:
 		animated_sprite_2d.flip_h = false
 		current_dir = 1
@@ -79,6 +99,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_spikes_body_entered(body: Node2D) -> void:
 	animated_sprite_2d.play("dead")
+	death_sfx.play()
 	Global.dead = true
 	Global.deaths += 1
 	print("die")

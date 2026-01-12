@@ -1,7 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://cjs8bfhrh3cvb"]
+[gd_scene load_steps=16 format=3 uid="uid://cjs8bfhrh3cvb"]
 
 [ext_resource type="Script" uid="uid://cu17fy0wvea1w" path="res://assets/scripts/gate.gd" id="1_6tiix"]
 [ext_resource type="Texture2D" uid="uid://dmb6ithl5jvvk" path="res://assets/sprites/tileset.png" id="1_i3m61"]
+[ext_resource type="AudioStream" uid="uid://bouw2dwse1fqu" path="res://assets/audio/gate-opening-102093_ONynhvqp.mp3" id="3_tv8ql"]
+[ext_resource type="AudioStream" uid="uid://cbwsycx5h51l7" path="res://assets/audio/success-83493.mp3" id="4_3vmo4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x6tju"]
 atlas = ExtResource("1_i3m61")
@@ -92,6 +94,12 @@ autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_8tlas")
+
+[node name="GateSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_tv8ql")
+
+[node name="SuccessSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_3vmo4")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

@@ -1,6 +1,7 @@
 extends Area2D
 @onready var player: CharacterBody2D = get_parent().get_node("Player")
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var key_collect_sfx: AudioStreamPlayer2D = $KeyCollectSFX
 
 var follow_player = false
 const SPEED = 10.0
@@ -14,6 +15,8 @@ func _process(delta: float) -> void:
 			position = lerp(position, Vector2(player.position.x+7, player.position.y-5), SPEED * delta)
 		
 func _on_body_entered(body: Node2D) -> void:
+	if !Global.key_collected:
+		key_collect_sfx.play()
 	follow_player = true
 	Global.key_collected = true
 	animated_sprite_2d.stop()

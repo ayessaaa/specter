@@ -6,6 +6,7 @@ extends Node2D
 @onready var time_lvl: Label = $Player/Camera2D/LevelCompleted/Time
 @onready var player: CharacterBody2D = $Player
 @onready var key: Area2D = $Key
+@onready var cam_animation: AnimationPlayer = $CamAnimation
 
 const GHOST = preload("uid://c56psrlw6rj4r")
 
@@ -19,6 +20,8 @@ var has_ghost = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if Global.deaths == 0:
+		cam_animation.play("fade_in")
 	if len(Global.position_array_current) > 0:
 		Global.position_array = Global.position_array_current
 		Global.position_array_current = []

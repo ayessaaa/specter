@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://rmes7jsjtd3s"]
+[gd_scene load_steps=41 format=4 uid="uid://rmes7jsjtd3s"]
 
 [ext_resource type="Script" uid="uid://bk4rtaql1hdum" path="res://assets/scripts/level_3.gd" id="1_77fwr"]
 [ext_resource type="Texture2D" uid="uid://bphryqh6g2lkb" path="res://assets/sprites/bg.png" id="2_eilrl"]
@@ -404,6 +404,42 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_pwk46"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player/Camera2D:offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 100), Vector2(0, -2), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ld3ys"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player/Camera2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8pqon"]
+_data = {
+&"RESET": SubResource("Animation_ld3ys"),
+&"fade_in": SubResource("Animation_pwk46")
+}
+
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_77fwr")
 
@@ -763,6 +799,11 @@ texture = ExtResource("17_0yykj")
 position = Vector2(31.5, 64)
 scale = Vector2(2.7449994, 2.7400007)
 texture = ExtResource("18_rkaoy")
+
+[node name="CamAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_8pqon")
+}
 
 [connection signal="timeout" from="Player/Camera2D/Dialogue/Timer" to="Player/Camera2D/Dialogue" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Spikes" to="Player" method="_on_spikes_body_entered"]

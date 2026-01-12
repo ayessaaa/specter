@@ -1,22 +1,26 @@
 extends Node2D
 @onready var player: CharacterBody2D = $Player
 const LEVEL_2 = preload("uid://cjx1iye3r2irn")
-@onready var main_area: Node2D = get_parent()
 @onready var boost_cooldown: AnimatedSprite2D = $CanvasLayer/BoostCooldown
 @onready var deaths: Label = $CanvasLayer/Deaths
 @onready var minutes: Label = $CanvasLayer/Minutes
 @onready var seconds: Label = $CanvasLayer/Seconds
 @onready var deaths_lvl: Label = $Player/Camera2D/LevelCompleted/Deaths
 @onready var time_lvl: Label = $Player/Camera2D/LevelCompleted/Time
+@onready var cam_animation: AnimationPlayer = $CamAnimation
 
 var stopwatch = 0.0
 var mins = 0
 var secs = 0
 
+var animation_done = false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	if Global.deaths == 0:
+		cam_animation.play("fade_in")
+		print("fadein")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

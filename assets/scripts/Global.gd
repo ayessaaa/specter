@@ -15,7 +15,7 @@ var dead = false
 var key_collected = false
 
 var level_completed = false
-var level = 3
+var level = 1
 
 var restart_lvl = false
 
@@ -30,3 +30,5 @@ var direction_array = []
 var direction_array_current = []
 
 var last_key_pos = null
+
+var play_pressed = false

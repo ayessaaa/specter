@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ri7n8gcaf10v"
+path="res://.godot/imported/ethereal-uplifting-loop-275529 (1) (1).mp3-ba7ce2cc58a3ceb46107b6ee5cf9b598.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/ethereal-uplifting-loop-275529 (1) (1).mp3"
+dest_files=["res://.godot/imported/ethereal-uplifting-loop-275529 (1) (1).mp3-ba7ce2cc58a3ceb46107b6ee5cf9b598.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

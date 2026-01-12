@@ -6,6 +6,7 @@ extends Node2D
 const LEVEL_1 = preload("uid://vafip83jovvm")
 const LEVEL_2 = preload("uid://cjx1iye3r2irn")
 const LEVEL_3 = preload("uid://rmes7jsjtd3s")
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var levels_array = [LEVEL_1, LEVEL_2, LEVEL_3]
 
@@ -21,8 +22,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Global.level_completed:
 		if Input.is_action_just_pressed("boost"):
-			var lvl_2 = LEVEL_2.instantiate()
-			levels.add_child(lvl_2)
+			var lvl = levels_array[Global.level-1].instantiate()
+			levels.add_child(lvl)
 			levels.get_child(0).queue_free()
 			Global.level_completed = false
 	if Global.restart_lvl:
@@ -32,3 +33,8 @@ func _process(delta: float) -> void:
 		levels.get_child(0).queue_free()
 		var lvl = levels_array[Global.level-1].instantiate()
 		levels.add_child(lvl)
+		
+	if Global.play_pressed:
+		var lvl = levels_array[Global.level-1].instantiate()
+		levels.add_child(lvl)
+		Global.play_pressed = false

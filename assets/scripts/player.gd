@@ -9,6 +9,8 @@ extends CharacterBody2D
 @onready var boost_sfx: AudioStreamPlayer2D = $BoostSFX
 @onready var running_sfx: AudioStreamPlayer2D = $RunningSFX
 @onready var landing_sfx: AudioStreamPlayer2D = $LandingSFX
+@onready var dust_left: AnimatedSprite2D = $DustLeft
+@onready var dust_right: AnimatedSprite2D = $DustRight
 
 const SPEED = 50.0
 const JUMP_VELOCITY = -120.0
@@ -20,6 +22,7 @@ const FRICTION = 500.0
 const BOOST = 150
 
 var is_boost = false
+var on_spike = false
 
 var jump = 0
 
@@ -97,18 +100,36 @@ func _physics_process(delta: float) -> void:
 		animated_sprite_2d.flip_h = false
 		current_dir = 1
 		
+	if on_spike and animated_sprite_2d.animation != "boost":
+		animated_sprite_2d.play("dead")
+		death_sfx.play()
+		Global.dead = true
+		Global.deaths += 1
+		
+	if animated_sprite_2d.animation == "walking":
+		if direction < 0:
+			dust_right.play("default")
+		elif direction > 0:
+			dust_left.play("default")
+			print("aaaa")
+	#else:
+		#dust_left.play("none")
+		#dust_right.play("none")
+		
+		
 		
 
 	move_and_slide()
 
 
 func _on_spikes_body_entered(body: Node2D) -> void:
-	animated_sprite_2d.play("dead")
-	death_sfx.play()
-	Global.dead = true
-	Global.deaths += 1
-	print("die")
-
+	if animated_sprite_2d.animation != "boost":
+		animated_sprite_2d.play("dead")
+		death_sfx.play()
+		Global.dead = true
+		Global.deaths += 1
+	else:
+		on_spike = true
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if animated_sprite_2d.animation == "dead":
@@ -119,4 +140,8 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 
 func _on_timer_timeout() -> void:
 	Global.restart_lvl = true
+	
+
+func _on_spikes_body_exited(body: Node2D) -> void:
+	on_spike = false
 	

@@ -32,3 +32,5 @@ var direction_array_current = []
 var last_key_pos = null
 
 var play_pressed = false
+
+var second_text = false

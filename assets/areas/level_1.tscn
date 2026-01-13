@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://vafip83jovvm"]
+[gd_scene load_steps=46 format=4 uid="uid://vafip83jovvm"]
 
 [ext_resource type="PackedScene" uid="uid://nhjxnc34e5km" path="res://assets/scenes/player.tscn" id="1_bpckr"]
 [ext_resource type="Texture2D" uid="uid://bphryqh6g2lkb" path="res://assets/sprites/bg.png" id="1_i37bn"]
@@ -8,10 +8,11 @@
 [ext_resource type="FontFile" uid="uid://x2tle50ieve6" path="res://assets/fonts/ari-w9500-bold.ttf" id="5_01dqv"]
 [ext_resource type="Script" uid="uid://bprftyo17kw14" path="res://assets/scripts/spikes.gd" id="6_hu8pt"]
 [ext_resource type="Texture2D" uid="uid://bl7sprb8xkmlh" path="res://assets/sprites/placeholder.PNG" id="8_djlsd"]
+[ext_resource type="Texture2D" uid="uid://1bvrowdg74y8" path="res://assets/sprites/cooldown.png" id="10_jlkhb"]
+[ext_resource type="Texture2D" uid="uid://wgrghfjfjf5k" path="res://assets/sprites/particles.png" id="11_pwk46"]
 [ext_resource type="PackedScene" uid="uid://dxwrbee330gma" path="res://assets/scenes/key.tscn" id="12_abimq"]
 [ext_resource type="PackedScene" uid="uid://cjs8bfhrh3cvb" path="res://assets/scenes/gate.tscn" id="13_g1ds8"]
 [ext_resource type="PackedScene" uid="uid://d2gxebgap71k7" path="res://assets/areas/level_completed.tscn" id="14_i21lu"]
-[ext_resource type="Texture2D" uid="uid://d20swary645gy" path="res://assets/sprites/progress.png" id="15_ayk4g"]
 [ext_resource type="FontFile" uid="uid://cddtgeh3yd7k8" path="res://assets/fonts/ari-w9500-display.ttf" id="16_ayk4g"]
 [ext_resource type="Texture2D" uid="uid://bn0mfs73ol7wh" path="res://assets/sprites/clock.png" id="17_pwk46"]
 [ext_resource type="Texture2D" uid="uid://cjke6iqgmtate" path="res://assets/sprites/skull.png" id="18_ld3ys"]
@@ -265,62 +266,101 @@ distance = -71.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hu8pt"]
 size = Vector2(8, 2)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_n8fvd"]
-atlas = ExtResource("15_ayk4g")
-region = Rect2(0, 0, 24, 8)
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ld3ys"]
+particles_animation = true
+particles_anim_h_frames = 8
+particles_anim_v_frames = 1
+particles_anim_loop = false
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ayk4g"]
-atlas = ExtResource("15_ayk4g")
-region = Rect2(0, 8, 24, 8)
+[sub_resource type="Gradient" id="Gradient_8pqon"]
+offsets = PackedFloat32Array(0, 0.17937219, 0.8744395, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jlkhb"]
-atlas = ExtResource("15_ayk4g")
-region = Rect2(0, 16, 24, 8)
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bnh17"]
+gradient = SubResource("Gradient_8pqon")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pwk46"]
-atlas = ExtResource("15_ayk4g")
-region = Rect2(0, 24, 24, 8)
+[sub_resource type="Gradient" id="Gradient_gounm"]
+offsets = PackedFloat32Array(0, 0.17937219, 0.86098653, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ld3ys"]
-atlas = ExtResource("15_ayk4g")
-region = Rect2(0, 32, 24, 8)
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qmxa4"]
+gradient = SubResource("Gradient_gounm")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8pqon"]
-atlas = ExtResource("15_ayk4g")
-region = Rect2(0, 40, 24, 8)
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jlkhb"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(300, 200, 1)
+spread = 20.0
+initial_velocity_min = 5.0
+initial_velocity_max = 30.0
+gravity = Vector3(0, 10, 0)
+scale_min = 0.7
+color_ramp = SubResource("GradientTexture1D_qmxa4")
+color_initial_ramp = SubResource("GradientTexture1D_bnh17")
+anim_offset_max = 1.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bnh17"]
-atlas = ExtResource("15_ayk4g")
-region = Rect2(0, 48, 24, 8)
+[sub_resource type="AtlasTexture" id="AtlasTexture_1h6hh"]
+atlas = ExtResource("2_i2sme")
+region = Rect2(48, 176, 8, 8)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gounm"]
-atlas = ExtResource("15_ayk4g")
-region = Rect2(0, 56, 24, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qmxa4"]
-atlas = ExtResource("15_ayk4g")
-region = Rect2(0, 64, 24, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_puf7b"]
-atlas = ExtResource("15_ayk4g")
-region = Rect2(0, 72, 24, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ddgme"]
-atlas = ExtResource("15_ayk4g")
-region = Rect2(0, 80, 24, 8)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_n8fvd"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_5mc35"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_n8fvd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ayk4g")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jlkhb")
-}, {
+"texture": SubResource("AtlasTexture_1h6hh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pwk46"]
+atlas = ExtResource("10_jlkhb")
+region = Rect2(0, 0, 24, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ld3ys"]
+atlas = ExtResource("10_jlkhb")
+region = Rect2(0, 16, 24, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pqon"]
+atlas = ExtResource("10_jlkhb")
+region = Rect2(0, 24, 24, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bnh17"]
+atlas = ExtResource("10_jlkhb")
+region = Rect2(0, 32, 24, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gounm"]
+atlas = ExtResource("10_jlkhb")
+region = Rect2(0, 40, 24, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmxa4"]
+atlas = ExtResource("10_jlkhb")
+region = Rect2(0, 48, 24, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_puf7b"]
+atlas = ExtResource("10_jlkhb")
+region = Rect2(0, 56, 24, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddgme"]
+atlas = ExtResource("10_jlkhb")
+region = Rect2(0, 64, 24, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mc35"]
+atlas = ExtResource("10_jlkhb")
+region = Rect2(0, 72, 24, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2ora"]
+atlas = ExtResource("10_jlkhb")
+region = Rect2(0, 80, 24, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3t5l0"]
+atlas = ExtResource("10_jlkhb")
+region = Rect2(0, 88, 24, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c2ora"]
+animations = [{
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pwk46")
 }, {
@@ -344,6 +384,15 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ddgme")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mc35")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2ora")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3t5l0")
 }],
 "loop": false,
 "name": &"default",
@@ -456,12 +505,52 @@ position = Vector2(32, -61)
 [node name="Gate" parent="." instance=ExtResource("13_g1ds8")]
 position = Vector2(197, -116)
 
+[node name="Signs" type="Node2D" parent="."]
+
+[node name="Sign1" parent="Signs" instance=ExtResource("20_bnh17")]
+position = Vector2(5, 8)
+sign_text = "use W A D keys to move around"
+lines = 2
+
+[node name="Sign2" parent="Signs" instance=ExtResource("20_bnh17")]
+position = Vector2(44, 0)
+sign_text = "your goal is to get the key and get out, fast.."
+lines = 3
+
+[node name="Sign3" parent="Signs" instance=ExtResource("20_bnh17")]
+position = Vector2(196, 8)
+sign_text = "you can also DOUBLE JUMP"
+lines = 2
+
+[node name="Sign4" parent="Signs" instance=ExtResource("20_bnh17")]
+position = Vector2(115, -48)
+sign_text = "and BOOST using SPACE"
+lines = 2
+
+[node name="Sign5" parent="Signs" instance=ExtResource("20_bnh17")]
+position = Vector2(52, -72)
+sign_text = "oh! and when you boost, you are invincible"
+lines = 3
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_ld3ys")
+position = Vector2(0, -65)
+amount = 100
+texture = ExtResource("11_pwk46")
+visibility_rect = Rect2(-100, -100, 350, 200)
+process_material = SubResource("ParticleProcessMaterial_jlkhb")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="BoostIcon" type="AnimatedSprite2D" parent="CanvasLayer"]
+position = Vector2(25, 618)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_5mc35")
+
 [node name="BoostCooldown" type="AnimatedSprite2D" parent="CanvasLayer"]
-position = Vector2(90, 613.99994)
+position = Vector2(123.99999, 614)
 scale = Vector2(6.4999995, 6.4999995)
-sprite_frames = SubResource("SpriteFrames_n8fvd")
+sprite_frames = SubResource("SpriteFrames_c2ora")
 autoplay = "default"
 
 [node name="Tutorial" type="Sprite2D" parent="CanvasLayer"]
@@ -568,21 +657,3 @@ stream = ExtResource("20_8pqon")
 volume_db = -5.0
 autoplay = true
 parameters/looping = true
-
-[node name="Signs" type="Node2D" parent="."]
-
-[node name="Sign1" parent="Signs" instance=ExtResource("20_bnh17")]
-position = Vector2(5, 8)
-sign_id = "lvl_1_1"
-
-[node name="Sign2" parent="Signs" instance=ExtResource("20_bnh17")]
-position = Vector2(44, 0)
-sign_id = "lvl_1_2"
-
-[node name="Sign3" parent="Signs" instance=ExtResource("20_bnh17")]
-position = Vector2(196, 8)
-sign_id = "lvl_1_3"
-
-[node name="Sign4" parent="Signs" instance=ExtResource("20_bnh17")]
-position = Vector2(115, -48)
-sign_id = "lvl_1_4"

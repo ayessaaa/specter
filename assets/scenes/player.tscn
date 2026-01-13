@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://nhjxnc34e5km"]
+[gd_scene load_steps=41 format=3 uid="uid://nhjxnc34e5km"]
 
 [ext_resource type="Texture2D" uid="uid://dhtn84pgrnco8" path="res://assets/sprites/player-tile.png" id="1_rwm0n"]
 [ext_resource type="Script" uid="uid://dsins6j6y3a5t" path="res://assets/scripts/player.gd" id="1_s027a"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://bgen5lhee4gi0" path="res://assets/audio/whoosh-effect-382717_RMAwo7Hs.mp3" id="4_8sknh"]
 [ext_resource type="AudioStream" uid="uid://cnmio4vgnt731" path="res://assets/audio/running-on-concrete-268478_SwYzZHdx.mp3" id="6_0gfpk"]
 [ext_resource type="AudioStream" uid="uid://cb6f68tynjy3y" path="res://assets/audio/jump-landing-30946_SyAGOhjl.mp3" id="7_0hrit"]
+[ext_resource type="Texture2D" uid="uid://dheo3rtsde7lt" path="res://assets/sprites/tileset-Recovered.png" id="9_tc801"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ratp2"]
 atlas = ExtResource("2_o5c66")
@@ -91,7 +92,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"boost",
-"speed": 10.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -200,6 +201,78 @@ _data = {
 &"fade_out": SubResource("Animation_s027a")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_0e2pd"]
+atlas = ExtResource("9_tc801")
+region = Rect2(184, 176, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cd4ww"]
+atlas = ExtResource("2_o5c66")
+region = Rect2(96, 168, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rqyl7"]
+atlas = ExtResource("2_o5c66")
+region = Rect2(104, 168, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wf17w"]
+atlas = ExtResource("2_o5c66")
+region = Rect2(112, 168, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_msj1n"]
+atlas = ExtResource("2_o5c66")
+region = Rect2(120, 168, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ktpxd"]
+atlas = ExtResource("2_o5c66")
+region = Rect2(128, 168, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvip7"]
+atlas = ExtResource("2_o5c66")
+region = Rect2(136, 168, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_beuf1"]
+atlas = ExtResource("9_tc801")
+region = Rect2(184, 176, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_beuf1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0e2pd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cd4ww")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rqyl7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wf17w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_msj1n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ktpxd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dvip7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0e2pd")
+}],
+"loop": false,
+"name": &"default",
+"speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_beuf1")
+}],
+"loop": false,
+"name": &"none",
+"speed": 5.0
+}]
+
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
 collision_layer = 2
@@ -243,6 +316,17 @@ parameters/looping = true
 stream = ExtResource("7_0hrit")
 
 [node name="BoostTimer" type="Timer" parent="."]
+
+[node name="DustLeft" type="AnimatedSprite2D" parent="."]
+position = Vector2(-4, -2)
+sprite_frames = SubResource("SpriteFrames_beuf1")
+frame = 7
+frame_progress = 1.0
+
+[node name="DustRight" type="AnimatedSprite2D" parent="."]
+position = Vector2(4, -2)
+sprite_frames = SubResource("SpriteFrames_beuf1")
+flip_h = true
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

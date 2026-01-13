@@ -11,6 +11,9 @@ extends CharacterBody2D
 @onready var landing_sfx: AudioStreamPlayer2D = $LandingSFX
 @onready var dust_left: AnimatedSprite2D = $DustLeft
 @onready var dust_right: AnimatedSprite2D = $DustRight
+@onready var point_light_2d: PointLight2D = $PointLight2D
+@onready var light_animation: AnimationPlayer = $LightAnimation
+@onready var camera_2d: Camera2D = $Camera2D
 
 const SPEED = 50.0
 const JUMP_VELOCITY = -120.0
@@ -32,8 +35,12 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	
 	if Global.dead:
 		return
+		
+	if Global.level_completed:
+		light_animation.play("fade_out")
 		
 	# Add the gravity.
 	if not is_on_floor():
@@ -82,6 +89,8 @@ func _physics_process(delta: float) -> void:
 		boost_cooldown.play("default")
 		boost_sfx.play()
 		is_boost = true
+		camera_2d.trigger_shake()
+		
 		
 	if !is_boost:
 		if not is_on_floor():
@@ -111,7 +120,6 @@ func _physics_process(delta: float) -> void:
 			dust_right.play("default")
 		elif direction > 0:
 			dust_left.play("default")
-			print("aaaa")
 	#else:
 		#dust_left.play("none")
 		#dust_right.play("none")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c56psrlw6rj4r"]
+[gd_scene load_steps=13 format=3 uid="uid://c56psrlw6rj4r"]
 
 [ext_resource type="Texture2D" uid="uid://dheo3rtsde7lt" path="res://assets/sprites/tileset-Recovered.png" id="1_oph3h"]
 
@@ -40,6 +40,33 @@ animations = [{
 radius = 3.0
 height = 8.0
 
+[sub_resource type="Animation" id="Animation_sopgx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_oph3h"]
 resource_name = "fade_in"
 length = 1.5
@@ -68,33 +95,6 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.78431374), Color(1, 1, 1, 0), Color(1, 1, 1, 0.78431374), Color(1, 1, 1, 0), Color(1, 1, 1, 0.78431374)]
 }
 
-[sub_resource type="Animation" id="Animation_sopgx"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CollisionShape2D:disabled")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_rt4f0"]
 resource_name = "loop"
 loop_mode = 1
@@ -118,6 +118,16 @@ _data = {
 &"loop": SubResource("Animation_rt4f0")
 }
 
+[sub_resource type="Gradient" id="Gradient_tc801"]
+offsets = PackedFloat32Array(0, 0.3764706, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.3098039, 0.3098039, 0.3098039, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_oph3h"]
+gradient = SubResource("Gradient_tc801")
+fill = 1
+fill_from = Vector2(0.517094, 0.4957265)
+fill_to = Vector2(0.82905984, 0.21794872)
+
 [node name="Ghost" type="CharacterBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -139,3 +149,9 @@ libraries = {
 &"": SubResource("AnimationLibrary_rt4f0")
 }
 autoplay = "fade_in"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -3)
+color = Color(1, 1, 1, 0.5019608)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_oph3h")

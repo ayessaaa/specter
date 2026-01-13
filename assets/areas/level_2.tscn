@@ -1,9 +1,10 @@
-[gd_scene load_steps=39 format=4 uid="uid://cjx1iye3r2irn"]
+[gd_scene load_steps=47 format=4 uid="uid://cjx1iye3r2irn"]
 
 [ext_resource type="Script" uid="uid://c2uq3vqxbms02" path="res://assets/scripts/level_2.gd" id="1_a84d6"]
 [ext_resource type="Texture2D" uid="uid://bphryqh6g2lkb" path="res://assets/sprites/bg.png" id="1_fchq4"]
 [ext_resource type="PackedScene" uid="uid://nhjxnc34e5km" path="res://assets/scenes/player.tscn" id="2_a84d6"]
 [ext_resource type="PackedScene" uid="uid://d2gxebgap71k7" path="res://assets/areas/level_completed.tscn" id="3_pe25n"]
+[ext_resource type="Script" uid="uid://b6my273q08d70" path="res://assets/scripts/camera_2d.gd" id="4_mraj0"]
 [ext_resource type="Texture2D" uid="uid://bl7sprb8xkmlh" path="res://assets/sprites/placeholder.PNG" id="5_bwr4m"]
 [ext_resource type="FontFile" uid="uid://x2tle50ieve6" path="res://assets/fonts/ari-w9500-bold.ttf" id="6_6uphn"]
 [ext_resource type="Texture2D" uid="uid://dmb6ithl5jvvk" path="res://assets/sprites/tileset.png" id="9_filp7"]
@@ -15,6 +16,7 @@
 [ext_resource type="FontFile" uid="uid://cddtgeh3yd7k8" path="res://assets/fonts/ari-w9500-display.ttf" id="16_adnl1"]
 [ext_resource type="Texture2D" uid="uid://bn0mfs73ol7wh" path="res://assets/sprites/clock.png" id="17_6uphn"]
 [ext_resource type="PackedScene" uid="uid://d3abfo27t53il" path="res://assets/scenes/sign.tscn" id="17_bwr4m"]
+[ext_resource type="Texture2D" uid="uid://wgrghfjfjf5k" path="res://assets/sprites/particles.png" id="18_6uphn"]
 [ext_resource type="Texture2D" uid="uid://cjke6iqgmtate" path="res://assets/sprites/skull.png" id="18_mraj0"]
 [ext_resource type="AudioStream" uid="uid://byiqgutsmp4wi" path="res://assets/audio/sound-of-dripping-water-from-stalactites-in-a-cave-hd-262342.mp3" id="20_filp7"]
 
@@ -400,6 +402,39 @@ _data = {
 &"fade_in": SubResource("Animation_pwk46")
 }
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mraj0"]
+particles_animation = true
+particles_anim_h_frames = 8
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_6ypwd"]
+offsets = PackedFloat32Array(0, 0.17937219, 0.8744395, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bnh17"]
+gradient = SubResource("Gradient_6ypwd")
+
+[sub_resource type="Gradient" id="Gradient_filp7"]
+offsets = PackedFloat32Array(0, 0.17937219, 0.86098653, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qmxa4"]
+gradient = SubResource("Gradient_filp7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_66lxp"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(300, 200, 1)
+spread = 20.0
+initial_velocity_min = 5.0
+initial_velocity_max = 30.0
+gravity = Vector3(0, 10, 0)
+scale_min = 0.7
+color_ramp = SubResource("GradientTexture1D_qmxa4")
+color_initial_ramp = SubResource("GradientTexture1D_bnh17")
+anim_offset_max = 1.0
+
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_a84d6")
 
@@ -429,6 +464,7 @@ zoom = Vector2(6.5, 6.5)
 limit_bottom = 100
 limit_smoothed = true
 position_smoothing_enabled = true
+script = ExtResource("4_mraj0")
 
 [node name="LevelCompleted" parent="Player/Camera2D" instance=ExtResource("3_pe25n")]
 visible = false
@@ -690,5 +726,13 @@ second_lines = 3
 position = Vector2(92, -24)
 sign_text = "well done huh you used it for your advantage"
 lines = 3
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_mraj0")
+position = Vector2(0, -65)
+amount = 100
+texture = ExtResource("18_6uphn")
+visibility_rect = Rect2(-400, -200, 2600, 300)
+process_material = SubResource("ParticleProcessMaterial_66lxp")
 
 [connection signal="body_entered" from="Spikes" to="Player" method="_on_spikes_body_entered"]

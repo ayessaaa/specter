@@ -1,10 +1,11 @@
-[gd_scene load_steps=46 format=4 uid="uid://vafip83jovvm"]
+[gd_scene load_steps=47 format=4 uid="uid://vafip83jovvm"]
 
 [ext_resource type="PackedScene" uid="uid://nhjxnc34e5km" path="res://assets/scenes/player.tscn" id="1_bpckr"]
 [ext_resource type="Texture2D" uid="uid://bphryqh6g2lkb" path="res://assets/sprites/bg.png" id="1_i37bn"]
 [ext_resource type="Script" uid="uid://bgrn48erlxaj0" path="res://assets/scripts/level_1.gd" id="1_pphag"]
 [ext_resource type="Texture2D" uid="uid://dmb6ithl5jvvk" path="res://assets/sprites/tileset.png" id="2_i2sme"]
 [ext_resource type="PackedScene" uid="uid://drtvghwuykwvu" path="res://assets/scenes/killzone.tscn" id="4_4fnwf"]
+[ext_resource type="Script" uid="uid://b6my273q08d70" path="res://assets/scripts/camera_2d.gd" id="4_ld3ys"]
 [ext_resource type="FontFile" uid="uid://x2tle50ieve6" path="res://assets/fonts/ari-w9500-bold.ttf" id="5_01dqv"]
 [ext_resource type="Script" uid="uid://bprftyo17kw14" path="res://assets/scripts/spikes.gd" id="6_hu8pt"]
 [ext_resource type="Texture2D" uid="uid://bl7sprb8xkmlh" path="res://assets/sprites/placeholder.PNG" id="8_djlsd"]
@@ -276,14 +277,14 @@ particles_anim_loop = false
 offsets = PackedFloat32Array(0, 0.17937219, 0.8744395, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_bnh17"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_pwk46"]
 gradient = SubResource("Gradient_8pqon")
 
 [sub_resource type="Gradient" id="Gradient_gounm"]
 offsets = PackedFloat32Array(0, 0.17937219, 0.86098653, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_qmxa4"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ld3ys"]
 gradient = SubResource("Gradient_gounm")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jlkhb"]
@@ -295,8 +296,8 @@ initial_velocity_min = 5.0
 initial_velocity_max = 30.0
 gravity = Vector3(0, 10, 0)
 scale_min = 0.7
-color_ramp = SubResource("GradientTexture1D_qmxa4")
-color_initial_ramp = SubResource("GradientTexture1D_bnh17")
+color_ramp = SubResource("GradientTexture1D_ld3ys")
+color_initial_ramp = SubResource("GradientTexture1D_pwk46")
 anim_offset_max = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1h6hh"]
@@ -464,6 +465,7 @@ zoom = Vector2(6.5, 6.5)
 limit_bottom = 100
 limit_smoothed = true
 position_smoothing_enabled = true
+script = ExtResource("4_ld3ys")
 
 [node name="LevelCompleted" parent="Player/Camera2D" instance=ExtResource("14_i21lu")]
 visible = false
@@ -537,7 +539,7 @@ material = SubResource("CanvasItemMaterial_ld3ys")
 position = Vector2(0, -65)
 amount = 100
 texture = ExtResource("11_pwk46")
-visibility_rect = Rect2(-100, -100, 350, 200)
+visibility_rect = Rect2(-400, -100, 2100, 200)
 process_material = SubResource("ParticleProcessMaterial_jlkhb")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

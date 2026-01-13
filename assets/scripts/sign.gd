@@ -10,7 +10,7 @@ extends Area2D
 # lvl 2 signs changes
 
 func _process(delta: float) -> void:
-	if !Global.second_text and Global.level == 2 and Global.deaths > 0:
+	if !Global.second_text and Global.level == 2 and Global.deaths > 0 and second_sign_text != "":
 		await get_tree().create_timer(2).timeout
 		label.text = second_sign_text
 		lines = second_lines
@@ -21,10 +21,12 @@ func _on_body_entered(body: Node2D) -> void:
 	if Global.second_text and second_sign_text != "":
 		label.text = second_sign_text
 		animation_player.play(str(second_lines)+"_line_in")
+		print("seconder")
 	else:
-		print("hello")
 		label.text = sign_text
 		animation_player.play(str(lines)+"_line_in")
+		print("firsty")
+		
 
 
 func _on_body_exited(body: Node2D) -> void:

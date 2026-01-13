@@ -41,18 +41,18 @@ func _physics_process(delta: float) -> void:
 			jump = 0
 
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor() and !Global.level_completed:
 		jump += 1
 		velocity.y = JUMP_VELOCITY
 		jump_sfx.play()
-	elif Input.is_action_just_pressed("jump") and jump < 2:
+	elif Input.is_action_just_pressed("jump") and jump < 2 and !Global.level_completed:
 		jump += 2
 		velocity.y = SECOND_JUMP_VELOCITY
 		jump_sfx.play()
 
 
 	var direction := Input.get_axis("left", "right")
-	if direction != 0:
+	if direction != 0 and !Global.level_completed:
 		velocity.x = move_toward(
 			velocity.x,
 			direction * SPEED,
@@ -73,7 +73,7 @@ func _physics_process(delta: float) -> void:
 		running_sfx.stop()
 		
 		
-	if Input.is_action_just_pressed("boost") and boost_cooldown.frame == 10:
+	if Input.is_action_just_pressed("boost") and boost_cooldown.frame == 10 and !Global.level_completed:
 		animated_sprite_2d.play("boost")
 		velocity.x += BOOST * current_dir
 		boost_cooldown.play("default")

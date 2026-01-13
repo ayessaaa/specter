@@ -34,6 +34,7 @@ func _ready() -> void:
 		
 	if Global.last_key_pos != null:
 		key.position = Global.last_key_pos
+		print("last pos")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -72,6 +73,7 @@ func _process(delta: float) -> void:
 				
 			Global.position_array_current.append(player.position)
 			Global.direction_array_current.append(player.current_dir)
+			Global.last_key_pos = key.position
 		else:
 			Global.position_array.append(player.position)
 			Global.direction_array.append(player.current_dir)

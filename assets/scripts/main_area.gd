@@ -22,9 +22,9 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Global.level_completed:
-		if Input.is_action_just_pressed("boost"):
+		if Input.is_action_just_pressed("enter"):
 			animation_player.play("blackin")
-			Global.level_completed = false
+			
 			
 	if Global.restart_lvl:
 		Global.restart_lvl = false
@@ -42,8 +42,19 @@ func _process(delta: float) -> void:
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "blackin":
+		Global.deaths = 0
+		Global.lvl_stopwatch = 0.0
+		Global.last_key_pos = null
+		Global.position_array = []
+		Global.position_array_current = []
+		Global.direction_array = []
+		Global.direction_array_current = []
+		
 		var lvl = levels_array[Global.level-1].instantiate()
 		levels.add_child(lvl)
 		levels.get_child(0).queue_free()
+		
 		animation_player.play("blackout")
+		Global.level_completed = false
+		
 	

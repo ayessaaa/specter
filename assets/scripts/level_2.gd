@@ -72,6 +72,7 @@ func _process(delta: float) -> void:
 				
 			Global.position_array_current.append(player.position)
 			Global.direction_array_current.append(player.current_dir)
+			Global.last_key_pos = key.position
 		else:
 			Global.position_array.append(player.position)
 			Global.direction_array.append(player.current_dir)

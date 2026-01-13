@@ -1,15 +1,12 @@
-[gd_scene load_steps=42 format=4 uid="uid://vafip83jovvm"]
+[gd_scene load_steps=37 format=4 uid="uid://vafip83jovvm"]
 
 [ext_resource type="PackedScene" uid="uid://nhjxnc34e5km" path="res://assets/scenes/player.tscn" id="1_bpckr"]
 [ext_resource type="Texture2D" uid="uid://bphryqh6g2lkb" path="res://assets/sprites/bg.png" id="1_i37bn"]
 [ext_resource type="Script" uid="uid://bgrn48erlxaj0" path="res://assets/scripts/level_1.gd" id="1_pphag"]
 [ext_resource type="Texture2D" uid="uid://dmb6ithl5jvvk" path="res://assets/sprites/tileset.png" id="2_i2sme"]
 [ext_resource type="PackedScene" uid="uid://drtvghwuykwvu" path="res://assets/scenes/killzone.tscn" id="4_4fnwf"]
-[ext_resource type="Script" uid="uid://61fden0et52o" path="res://assets/scripts/dialogue.gd" id="4_634w1"]
 [ext_resource type="FontFile" uid="uid://x2tle50ieve6" path="res://assets/fonts/ari-w9500-bold.ttf" id="5_01dqv"]
-[ext_resource type="FontFile" uid="uid://82tmgga5qpe2" path="res://assets/fonts/ari-w9500.ttf" id="6_70fia"]
 [ext_resource type="Script" uid="uid://bprftyo17kw14" path="res://assets/scripts/spikes.gd" id="6_hu8pt"]
-[ext_resource type="PackedScene" uid="uid://b8atfn0h15glu" path="res://assets/scenes/arrow_area.tscn" id="7_hu8pt"]
 [ext_resource type="Texture2D" uid="uid://bl7sprb8xkmlh" path="res://assets/sprites/placeholder.PNG" id="8_djlsd"]
 [ext_resource type="PackedScene" uid="uid://dxwrbee330gma" path="res://assets/scenes/key.tscn" id="12_abimq"]
 [ext_resource type="PackedScene" uid="uid://cjs8bfhrh3cvb" path="res://assets/scenes/gate.tscn" id="13_g1ds8"]
@@ -19,138 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://bn0mfs73ol7wh" path="res://assets/sprites/clock.png" id="17_pwk46"]
 [ext_resource type="Texture2D" uid="uid://cjke6iqgmtate" path="res://assets/sprites/skull.png" id="18_ld3ys"]
 [ext_resource type="AudioStream" uid="uid://byiqgutsmp4wi" path="res://assets/audio/sound-of-dripping-water-from-stalactites-in-a-cave-hd-262342.mp3" id="20_8pqon"]
-
-[sub_resource type="Animation" id="Animation_634w1"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DialogueBG:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1.9073486e-06, 56)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ArrowArea:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("DialogueTitle:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("DialogueText:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("DialogueFooter:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_70fia"]
-resource_name = "fade_in"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DialogueBG:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.45, 0.6333333),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1.9073486e-06, 56), Vector2(-2.2737368e-13, 28), Vector2(1.9073486e-06, 29)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ArrowArea:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.6333333, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("DialogueTitle:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.6333333, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("DialogueText:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.6333333, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("DialogueFooter:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.6333333, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_abimq"]
-_data = {
-&"RESET": SubResource("Animation_634w1"),
-&"fade_in": SubResource("Animation_70fia")
-}
+[ext_resource type="PackedScene" uid="uid://d3abfo27t53il" path="res://assets/scenes/sign.tscn" id="20_bnh17"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i37bn"]
 texture = ExtResource("2_i2sme")
@@ -553,69 +419,13 @@ position_smoothing_enabled = true
 [node name="LevelCompleted" parent="Player/Camera2D" instance=ExtResource("14_i21lu")]
 visible = false
 
-[node name="Dialogue" type="Node2D" parent="Player/Camera2D"]
-visible = false
-position = Vector2(0, 9)
-script = ExtResource("4_634w1")
-
-[node name="DialogueBG" type="Sprite2D" parent="Player/Camera2D/Dialogue"]
-position = Vector2(1.9073486e-06, 56)
-scale = Vector2(0.16887818, 0.056043956)
-texture = ExtResource("8_djlsd")
-
-[node name="DialogueTitle" type="Label" parent="Player/Camera2D/Dialogue"]
-modulate = Color(1, 1, 1, 0)
-offset_left = -62.999996
-offset_top = 21.0
-offset_right = 95.0
-offset_bottom = 44.0
-scale = Vector2(0.34616065, 0.34616065)
-theme_override_fonts/font = ExtResource("5_01dqv")
-theme_override_font_sizes/font_size = 11
-text = "hello traveller,"
-
-[node name="DialogueText" type="Label" parent="Player/Camera2D/Dialogue"]
-modulate = Color(1, 1, 1, 0)
-offset_left = -62.999996
-offset_top = 28.0
-offset_right = 95.0
-offset_bottom = 51.0
-scale = Vector2(0.3207223, 0.3207223)
-theme_override_fonts/font = ExtResource("6_70fia")
-theme_override_font_sizes/font_size = 11
-text = "are ready to explore this cave?"
-
-[node name="DialogueFooter" type="Label" parent="Player/Camera2D/Dialogue"]
-modulate = Color(1, 1, 1, 0)
-offset_left = 32.0
-offset_top = 33.0
-offset_right = 196.0
-offset_bottom = 56.0
-scale = Vector2(0.17055409, 0.17055409)
-theme_override_fonts/font = ExtResource("5_01dqv")
-theme_override_font_sizes/font_size = 11
-text = "PRESS SPACE TO CONTINUE"
-
-[node name="ArrowArea" parent="Player/Camera2D/Dialogue" instance=ExtResource("7_hu8pt")]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(63.000004, 33.000008)
-scale = Vector2(0.50181365, 0.50181365)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Player/Camera2D/Dialogue"]
-libraries = {
-&"": SubResource("AnimationLibrary_abimq")
-}
-
-[node name="Timer" type="Timer" parent="Player/Camera2D/Dialogue"]
-one_shot = true
-
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_4fnwf")
 format = 2
 
 [node name="Layer1" type="TileMapLayer" parent="TileMap"]
 use_parent_material = true
-tile_map_data = PackedByteArray("AAD6//z/AQAFAAkAAAD6/wAAAQAFAAAAAAD7//z/AQACAAoAAAD7/wAAAQABAAAAAAD8//r/AQAFAAkAAAD8//v/AQACAAoAAAD8/wAAAQACAAAAAAD9//r/AQABAAoAAAABAAEAAQABAAgAAAACAAEAAQAEAAQAAAAFAPr/AQACAAYAAAAFAAAAAQABAAAAAAAGAAAAAQABAAAAAAAHAPT/AQAJAAUAAAAHAAAAAQABAAAAAAAIAO//AQAFAAEAAAAIAPD/AQACAAIAAAAIAPT/AQACAAYAAAAIAAAAAQABAAAAAAAJAAAAAQACAAAAAAAJAAEAAQAFAAgAAAAMAAEAAQABAAgAAAANAO//AQACAAIAAAANAAEAAQABAAgAAAAOAO7/AQABAAIAAAAOAPT/AQAAAAgAAAAOAAEAAQAEAAgAAAAPAO7/AQABAAIAAAAPAPT/AQABAAgAAAAPAPX/AQABAAoAAAAQAO7/AQAEAAEAAAAQAPX/AQACAAoAAAARAAEAAQACAAUAAAASAPD/AQAFAAUAAAASAPH/AQACAAYAAAASAPz/AQALAAUAAAD6//3/AQACAAEAAAD6//7/AQACAAEAAAD6////AQACAAEAAAD7//v/AQAFAAkAAAD8/wEAAQAFAAgAAAD9/wEAAQABAAgAAAD+//r/AQABAAoAAAD+/wEAAQABAAgAAAD///r/AQABAAoAAAD//wEAAQABAAgAAAAAAPr/AQABAAoAAAAAAAEAAQABAAgAAAABAPv/AQAAAAkAAAABAPz/AQAAAAoAAAACAPX/AQAFAAkAAAACAPb/AQACAAkAAAACAPf/AQACAAkAAAACAPj/AQACAAkAAAACAPn/AQAFAAQAAAACAPz/AQABAAoAAAACAAAAAQAAAAQAAAADAPP/AQACAAUAAAADAPT/AQACAAkAAAADAPX/AQACAAoAAAADAPn/AQABAAQAAAADAPz/AQABAAoAAAADAAAAAQABAAQAAAAEAPn/AQABAAQAAAAEAPr/AQAFAAUAAAAEAPv/AQACAAUAAAAEAPz/AQACAAoAAAAEAAAAAQABAAQAAAAFAPj/AQAAAAQAAAAFAPn/AQAFAAUAAAAGAPD/AQABAAYAAAAGAPf/AQAHAAQAAAAGAPj/AQACAAUAAAAGAPn/AQACAAYAAAAHAPD/AQABAAIAAAAIAPP/AQAAAAQAAAAJAO//AQABAAIAAAAJAPP/AQALAAUAAAAKAO//AQABAAIAAAAKAAEAAQABAAgAAAALAO//AQABAAIAAAALAAEAAQABAAgAAAAMAO//AQABAAIAAAANAO7/AQAFAAEAAAANAPr/AQAAAAAAAAANAPv/AQAAAAIAAAAOAPX/AQAAAAoAAAAOAPr/AQACAAAAAAAOAPv/AQABAAIAAAAOAAAAAQAAAAQAAAAPAPv/AQALAAEAAAAPAAAAAQABAAQAAAAQAO//AQAAAAEAAAAQAPD/AQAAAAIAAAAQAPT/AQACAAgAAAAQAAAAAQABAAQAAAARAPD/AQAEAAEAAAARAPH/AQAAAAIAAAARAPz/AQAJAAUAAAARAAAAAQACAAQAAAARAAIAAQAFAAQAAAASAAIAAQABAAQAAAATAPD/AQABAAYAAAATAPT/AQAJAAEAAAATAPz/AQABAA8AAAATAAIAAQABAAQAAAAUAPD/AQABAAYAAAAUAPP/AQAAAAAAAAAUAPT/AQABAAIAAAAUAAEAAQAAAAQAAAAUAAIAAQAEAAQAAAAVAO//AQAFAAkAAAAVAPD/AQACAAYAAAAVAPP/AQABAAQAAAAVAPT/AQABAAIAAAAVAP3/AQAJAAkAAAAVAAEAAQABAAAAAAAWAO7/AQAFAAkAAAAWAO//AQACAAoAAAAWAPP/AQABAAQAAAAWAPT/AQABAAIAAAAWAPf/AQAJAAUAAAAWAP3/AQAKAAkAAAAWAAEAAQABAAAAAAAXAO7/AQABAAoAAAAXAPL/AQAAAAgAAAAXAPP/AQAEAAgAAAAXAPT/AQAEAAEAAAAXAPX/AQAAAAIAAAAXAPf/AQAKAAUAAAAXAPj/AQAAAAYAAAAXAP3/AQALAAkAAAAXAAEAAQABAAAAAAAYAO7/AQABAAoAAAAYAPL/AQABAAgAAAAYAPX/AQAEAAEAAAAYAPb/AQAAAAUAAAAYAPf/AQAEAAQAAAAYAPj/AQAEAAUAAAAYAPn/AQAAAAYAAAAYAAEAAQABAAAAAAAZAO7/AQABAAoAAAAZAPL/AQABAAgAAAAZAPn/AQABAAYAAAAZAAEAAQABAAAAAAAaAO7/AQAEAAkAAAAaAO//AQAAAAkAAAAaAPD/AQAAAAkAAAAaAPH/AQAAAAkAAAAaAPL/AQAEAAgAAAAaAPn/AQAEAAkAAAAaAPr/AQAAAAkAAAAaAPv/AQAAAAkAAAAaAPz/AQAAAAEAAAAaAP3/AQAAAAEAAAAaAP7/AQAAAAEAAAAaAP//AQAAAAEAAAAaAAAAAQAAAAEAAAADAPL/AQACAAUAAAAEAPH/AQACAAYAAAAFAPD/AQABAAYAAAAEAPD/AQAFAAUAAAADAPH/AQAFAAUAAAAaAAEAAQAEAAAAAAD7////AQAPAAQAAAD8////AQAOAAQAAAD7//3/AQAOAAMAAAD9//v/AQAOAAMAAAD///v/AQAPAAMAAAAAAPv/AQAQAAMAAAD8//z/AQAQAAMAABD+/wAAAQAOAAEAAAD//wAAAQAPAAEAAAABAAAAAQAQAAEAAAACAP//AQAOAAAAAAATAAEAAQAOAAAAABASAPv/AQAOAAAAABAXAPb/AQAOAAAAABAFAPf/AQAOAAAAAAAVAPL/AQAQAAAAAAADAP//AQAPAAAAAAAQAP//AQAPAAAAAAAEAPj/AQAPAAAAAAAWAPb/AQAPAAAAAAAWAPL/AQAPAAAAAAAJAPL/AQAPAAAAABAEAP//AQAQAAAAAAAPAP//AQAQAAAAAAASAAEAAQANAAAAAAADAPj/AQANAAAAAAAHAPP/AQAPAAAAAAAIAPL/AQAQAAAAAAAOAP//AQAQAAAAABARAP//AQAOAAAAAAACAP3/AQAOAAMAAAADAP3/AQAPAAMAAAAFAPv/AQAPAAIAAAAJAPT/AQAPAAIAAAAZAPr/AQAPAAIAAAAGAPr/AQAOAAIAAAAUAPH/AQAQAAIAAAASAPL/AQAQAAIAAAATAPH/AQAOAAIAAAAWAPj/AQAOAAIAAAASAP3/AQAOAAIAAAARAP3/AQAPAAIAAAAXAPn/AQAPAAIAAAAYAPr/AQAQAAIAAAAFAPH/AQAQAAIAAAAEAPL/AQAPAAIAAAAGAPH/AQAOAAIAAAAAAAAAAQAQAAQAAAAYAAAAAQAQAAQAAAAOAPn/AQAQAAQAAAAMAAAAAQAOAAEAABAKAAAAAQAOAAEAAAAWAPz/AQAOAAEAAAAQAPP/AQAOAAEAAAAXAPH/AQAOAAEAAAALAAAAAQAQAAEAAAAVAPz/AQAPAAEAAAAPAPP/AQAPAAEAAAAZAPH/AQAPAAEAAAANAAAAAQAPAAEAAAAXAPz/AQAQAAEAAAAOAPP/AQAQAAEAAAAZAO//AQAQAAMAAAAYAO//AQAPAAMAAAAXAO//AQAOAAMAAAAWAPD/AQAOAAMAAAAEAP3/AQAQAAEAACD+//v/AQAQAAEAACADAPb/AQAOAAMAAAAQAPb/AQAQAAEAACAPAPb/AQAPAAMAAAAVAPX/AQAQAAYAAAAOAO//AQAQAAYAAAAKAPD/AQAQAAYAAAAIAPH/AQAQAAYAABARAPL/AQAPAAYAABAPAO//AQAPAAYAABALAPD/AQAPAAYAAAAUAPX/AQAPAAYAAAAWAPX/AQAOAAYAAAATAPX/AQAOAAYAABAQAPH/AQAOAAYAABANAPD/AQAOAAYAABAJAPD/AQAOAAYAABAHAPH/AQAOAAYAABAGAP//AQAOAAQAAAAHAP//AQAPAAUAAAAJAP//AQAOAAUAAAAOAPz/AQAPAAYAAAANAPz/AQAQAAYAAAAPAPz/AQAOAAYAAAANAPn/AQAOAAQAAAATAPP/AQAPAAUAAAAWAAAAAQAPAAUAAAAXAAAAAQAOAAQAAAAZAAAAAQAPAAQAAAAZAPz/AQAOAAYAAFA=")
+tile_map_data = PackedByteArray("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")
 tile_set = SubResource("TileSet_4fnwf")
 
 [node name="Killzone" parent="." instance=ExtResource("4_4fnwf")]
@@ -639,12 +449,6 @@ polygon = PackedVector2Array(41, 8, 41, 6, 42, 6, 42, 4, 43, 4, 43, 6, 44, 6, 44
 position = Vector2(156, -30)
 shape = SubResource("RectangleShape2D_hu8pt")
 one_way_collision = true
-
-[node name="Arrows" type="Node2D" parent="."]
-
-[node name="ArrowArea" parent="Arrows" instance=ExtResource("7_hu8pt")]
-modulate = Color(1, 1, 1, 0.78431374)
-position = Vector2(201, 2)
 
 [node name="Key" parent="." instance=ExtResource("12_abimq")]
 position = Vector2(32, -61)
@@ -765,4 +569,20 @@ volume_db = -5.0
 autoplay = true
 parameters/looping = true
 
-[connection signal="timeout" from="Player/Camera2D/Dialogue/Timer" to="Player/Camera2D/Dialogue" method="_on_timer_timeout"]
+[node name="Signs" type="Node2D" parent="."]
+
+[node name="Sign1" parent="Signs" instance=ExtResource("20_bnh17")]
+position = Vector2(5, 8)
+sign_id = "lvl_1_1"
+
+[node name="Sign2" parent="Signs" instance=ExtResource("20_bnh17")]
+position = Vector2(44, 0)
+sign_id = "lvl_1_2"
+
+[node name="Sign3" parent="Signs" instance=ExtResource("20_bnh17")]
+position = Vector2(196, 8)
+sign_id = "lvl_1_3"
+
+[node name="Sign4" parent="Signs" instance=ExtResource("20_bnh17")]
+position = Vector2(115, -48)
+sign_id = "lvl_1_4"

@@ -1,0 +1,89 @@
+[gd_scene load_steps=10 format=3 uid="uid://2t2xtwh3capm"]
+
+[ext_resource type="Script" uid="uid://dttuhvpb6adit" path="res://assets/scripts/dripstone_1.gd" id="1_oppse"]
+[ext_resource type="Texture2D" uid="uid://dmb6ithl5jvvk" path="res://assets/sprites/tileset.png" id="1_vvhd3"]
+[ext_resource type="AudioStream" uid="uid://c03c5nr73nhcn" path="res://assets/audio/stones-falling-6375.mp3" id="3_en28a"]
+[ext_resource type="AudioStream" uid="uid://dh72k38v6ybsx" path="res://assets/audio/heavy-ice-rock-falls-419583_qVaZ2NGZ.mp3" id="4_sc644"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_en28a"]
+atlas = ExtResource("1_vvhd3")
+region = Rect2(112, 56, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sc644"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_en28a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_en28a"]
+resource_name = "fade_out"
+length = 0.18
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DripstoneBody:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_sc644"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DripstoneBody:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hh2r3"]
+_data = {
+&"RESET": SubResource("Animation_sc644"),
+&"fade_out": SubResource("Animation_en28a")
+}
+
+[node name="Dripstone1" type="Area2D"]
+script = ExtResource("1_oppse")
+
+[node name="DripstoneBody" type="RigidBody2D" parent="."]
+collision_mask = 2
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DripstoneBody"]
+position = Vector2(0, -4)
+sprite_frames = SubResource("SpriteFrames_sc644")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DripstoneBody"]
+polygon = PackedVector2Array(-1, -8, -1, -6, 0, -6, 0, -4, 1, -4, 1, -6, 2, -6, 2, -7, 3, -7, 3, -8)
+
+[node name="StoneFallingSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_en28a")
+volume_db = -10.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_hh2r3")
+}
+
+[node name="StoneFallSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_sc644")
+
+[connection signal="body_entered" from="DripstoneBody" to="." method="_on_dripstone_body_body_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

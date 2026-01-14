@@ -6,10 +6,11 @@ extends Node2D
 const LEVEL_1 = preload("res://assets/areas/level_1.tscn")
 const LEVEL_2 = preload("res://assets/areas/level_2.tscn")
 const LEVEL_3 = preload("res://assets/areas/level_3.tscn")
+const LEVEL_4 = preload("res://assets/areas/level_4.tscn")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
-var levels_array = [LEVEL_1, LEVEL_2, LEVEL_3]
+var levels_array = [LEVEL_1, LEVEL_2, LEVEL_3, LEVEL_4]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

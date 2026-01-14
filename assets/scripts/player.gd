@@ -14,6 +14,7 @@ extends CharacterBody2D
 @onready var point_light_2d: PointLight2D = $PointLight2D
 @onready var light_animation: AnimationPlayer = $LightAnimation
 @onready var camera_2d: Camera2D = $Camera2D
+@onready var jump_animation: AnimatedSprite2D = $JumpAnimation
 
 const SPEED = 50.0
 const JUMP_VELOCITY = -120.0

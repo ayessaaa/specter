@@ -67,6 +67,8 @@ libraries = {
 &"": SubResource("AnimationLibrary_pjtdl")
 }
 
+[node name="Screens" type="Node2D" parent="."]
+
 [node name="Levels" type="Node2D" parent="."]
 
 [node name="TitleScreen" parent="." instance=ExtResource("2_symrv")]

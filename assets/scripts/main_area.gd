@@ -8,6 +8,8 @@ const LEVEL_2 = preload("res://assets/areas/level_2.tscn")
 const LEVEL_3 = preload("res://assets/areas/level_3.tscn")
 const LEVEL_4 = preload("res://assets/areas/level_4.tscn")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+const LEVELS_SCREEN = preload("res://assets/areas/levels_screen.tscn")
+@onready var screens: Node2D = $Screens
 
 
 var levels_array = [LEVEL_1, LEVEL_2, LEVEL_3, LEVEL_4]
@@ -39,6 +41,11 @@ func _process(delta: float) -> void:
 		var lvl = levels_array[Global.level-1].instantiate()
 		levels.add_child(lvl)
 		Global.play_pressed = false
+		
+	if Global.levels_pressed:
+		var screen = LEVELS_SCREEN.instantiate()
+		screens.add_child(screen)
+		Global.levels_pressed = false
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:

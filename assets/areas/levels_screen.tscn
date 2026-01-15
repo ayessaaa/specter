@@ -1,0 +1,265 @@
+[gd_scene load_steps=16 format=3 uid="uid://bekc53rfrv7ks"]
+
+[ext_resource type="Script" uid="uid://nyxg0khwcrqd" path="res://assets/scripts/levels_screen.gd" id="1_nastl"]
+[ext_resource type="Texture2D" uid="uid://4afyohkkjmk1" path="res://assets/sprites/Frame 9.png" id="1_rehdr"]
+[ext_resource type="Texture2D" uid="uid://crylbslyjus4o" path="res://assets/sprites/levels1.png" id="2_6g7db"]
+[ext_resource type="Texture2D" uid="uid://dnvducqijxu83" path="res://assets/sprites/textbox.png" id="2_45ygf"]
+[ext_resource type="FontFile" uid="uid://cddtgeh3yd7k8" path="res://assets/fonts/ari-w9500-display.ttf" id="3_rbhq2"]
+[ext_resource type="Texture2D" uid="uid://23eo0opltwxv" path="res://assets/sprites/linedash2.png" id="5_7bb8j"]
+[ext_resource type="Texture2D" uid="uid://cb83qy8bdfehg" path="res://assets/sprites/levels.png" id="5_y25rl"]
+[ext_resource type="Texture2D" uid="uid://dqxfew5lwx855" path="res://assets/sprites/levels2.png" id="6_nastl"]
+[ext_resource type="Texture2D" uid="uid://oi2gdms8fdbo" path="res://assets/sprites/levels3.png" id="7_y25rl"]
+[ext_resource type="Texture2D" uid="uid://d2obhg3i5ydb2" path="res://assets/sprites/levels4.png" id="8_mnns0"]
+[ext_resource type="Texture2D" uid="uid://cjke6iqgmtate" path="res://assets/sprites/skull.png" id="9_l7lcu"]
+[ext_resource type="Texture2D" uid="uid://bn0mfs73ol7wh" path="res://assets/sprites/clock.png" id="10_ao55q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnns0"]
+atlas = ExtResource("5_y25rl")
+region = Rect2(40, 24, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7lcu"]
+atlas = ExtResource("5_y25rl")
+region = Rect2(40, 40, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ao55q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mnns0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7lcu")
+}],
+"loop": true,
+"name": &"hover",
+"speed": 5.0
+}]
+
+[node name="LevelsScreen" type="Node2D"]
+script = ExtResource("1_nastl")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BG" type="Sprite2D" parent="CanvasLayer"]
+z_index = -1
+position = Vector2(576, 324)
+texture = ExtResource("1_rehdr")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -161.0
+offset_top = 141.6842
+offset_right = -125.625
+offset_bottom = 166.06021
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -3.1415927
+scale = Vector2(3.934014, 3.934014)
+pivot_offset = Vector2(12, 2)
+size_flags_horizontal = 4
+texture = ExtResource("2_45ygf")
+region_rect = Rect2(0, 0, 40, 32.06125)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="RockShadow1" type="Sprite2D" parent="CanvasLayer"]
+modulate = Color(0.39215687, 0.39215687, 0.39215687, 0.5019608)
+position = Vector2(148.00005, 321)
+scale = Vector2(3.687499, 3.687499)
+texture = ExtResource("2_6g7db")
+
+[node name="Rock1" type="AnimatedSprite2D" parent="CanvasLayer"]
+z_index = 2
+position = Vector2(144.00002, 317)
+scale = Vector2(3.687499, 3.687499)
+sprite_frames = SubResource("SpriteFrames_ao55q")
+autoplay = "default"
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+z_index = 3
+offset_left = 111.0
+offset_top = 285.0
+offset_right = 176.0
+offset_bottom = 350.0
+mouse_default_cursor_shape = 2
+
+[node name="Tutorial" type="Label" parent="CanvasLayer"]
+offset_left = 104.0
+offset_top = 358.0
+offset_right = 232.0
+offset_bottom = 381.0
+scale = Vector2(0.6377405, 0.6377405)
+theme_override_colors/font_color = Color(0.54509807, 0.60784316, 0.7058824, 1)
+theme_override_colors/font_shadow_color = Color(0.09411765, 0.09411765, 0.15294118, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("3_rbhq2")
+theme_override_font_sizes/font_size = 22
+text = "TUTORIAL"
+
+[node name="PointLight2D" type="PointLight2D" parent="CanvasLayer"]
+
+[node name="Levels" type="Label" parent="CanvasLayer"]
+offset_left = 486.0
+offset_top = 64.0
+offset_right = 633.0
+offset_bottom = 97.0
+scale = Vector2(1.2479707, 1.2479707)
+theme_override_colors/font_shadow_color = Color(0.09411765, 0.09411765, 0.15294118, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("3_rbhq2")
+theme_override_font_sizes/font_size = 33
+text = "LEVELS"
+horizontal_alignment = 1
+
+[node name="Line2D" type="Line2D" parent="CanvasLayer"]
+position = Vector2(23.572083, 4)
+scale = Vector2(0.5023256, 1)
+points = PackedVector2Array(403, 322, 610, 322)
+width = 4.0
+texture = ExtResource("5_7bb8j")
+texture_mode = 2
+sharp_limit = 0.0
+
+[node name="RockShadow2" type="Sprite2D" parent="CanvasLayer"]
+modulate = Color(0.40784314, 0.40784314, 0.40784314, 0.5019608)
+position = Vector2(406, 322)
+scale = Vector2(3.687, 3.687)
+texture = ExtResource("6_nastl")
+
+[node name="Rock2" type="Sprite2D" parent="CanvasLayer"]
+modulate = Color(0.54901963, 0.54901963, 0.54901963, 1)
+z_index = 2
+position = Vector2(402, 318)
+scale = Vector2(3.687, 3.687)
+texture = ExtResource("6_nastl")
+
+[node name="Lvl2" type="Label" parent="CanvasLayer"]
+offset_left = 365.0
+offset_top = 358.0
+offset_right = 493.0
+offset_bottom = 381.0
+scale = Vector2(0.6377405, 0.6377405)
+theme_override_colors/font_color = Color(0.3529412, 0.4117647, 0.53333336, 1)
+theme_override_colors/font_shadow_color = Color(0.09411765, 0.09411765, 0.15294118, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("3_rbhq2")
+theme_override_font_sizes/font_size = 22
+text = "LVL 2"
+horizontal_alignment = 1
+
+[node name="SelectLvl" type="Label" parent="CanvasLayer"]
+offset_left = 522.0
+offset_top = 605.0
+offset_right = 734.0
+offset_bottom = 628.0
+scale = Vector2(0.6377405, 0.6377405)
+theme_override_colors/font_color = Color(0.54509807, 0.60784316, 0.7058824, 1)
+theme_override_colors/font_shadow_color = Color(0.09411765, 0.09411765, 0.15294118, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("3_rbhq2")
+theme_override_font_sizes/font_size = 22
+text = "SELECT A LEVEL"
+
+[node name="Line2D2" type="Line2D" parent="CanvasLayer"]
+position = Vector2(277.57205, 4)
+scale = Vector2(0.5023256, 1)
+points = PackedVector2Array(403, 322, 610, 322)
+width = 4.0
+texture = ExtResource("5_7bb8j")
+texture_mode = 2
+sharp_limit = 0.0
+
+[node name="RockShadow3" type="Sprite2D" parent="CanvasLayer"]
+modulate = Color(0.42745098, 0.42745098, 0.42745098, 0.5019608)
+position = Vector2(670, 325.00003)
+scale = Vector2(3.687, 3.687)
+texture = ExtResource("7_y25rl")
+
+[node name="Rock3" type="Sprite2D" parent="CanvasLayer"]
+modulate = Color(0.54901963, 0.54901963, 0.54901963, 1)
+z_index = 2
+position = Vector2(666, 321)
+scale = Vector2(3.687, 3.687)
+texture = ExtResource("7_y25rl")
+
+[node name="Lvl3" type="Label" parent="CanvasLayer"]
+offset_left = 628.0
+offset_top = 358.0
+offset_right = 756.0
+offset_bottom = 381.0
+scale = Vector2(0.6377405, 0.6377405)
+theme_override_colors/font_color = Color(0.3529412, 0.4117647, 0.53333336, 1)
+theme_override_colors/font_shadow_color = Color(0.09411765, 0.09411765, 0.15294118, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("3_rbhq2")
+theme_override_font_sizes/font_size = 22
+text = "LVL 3"
+horizontal_alignment = 1
+
+[node name="Line2D3" type="Line2D" parent="CanvasLayer"]
+position = Vector2(396.00003, 111.99999)
+rotation = -0.5235988
+scale = Vector2(0.5023256, 1)
+points = PackedVector2Array(403, 322, 610, 322)
+width = 4.0
+texture = ExtResource("5_7bb8j")
+texture_mode = 2
+sharp_limit = 0.0
+
+[node name="RockShadow4" type="Sprite2D" parent="CanvasLayer"]
+modulate = Color(0.44934908, 0.44934908, 0.44934908, 0.5)
+position = Vector2(893, 209)
+scale = Vector2(3.687, 3.687)
+texture = ExtResource("8_mnns0")
+
+[node name="Rock4" type="Sprite2D" parent="CanvasLayer"]
+modulate = Color(0.5962391, 0.5962391, 0.5962391, 1)
+z_index = 2
+position = Vector2(889, 205)
+scale = Vector2(3.687, 3.687)
+texture = ExtResource("8_mnns0")
+
+[node name="Lvl4" type="Label" parent="CanvasLayer"]
+offset_left = 843.0
+offset_top = 245.0
+offset_right = 971.0
+offset_bottom = 268.0
+scale = Vector2(0.6377405, 0.6377405)
+theme_override_colors/font_color = Color(0.3529412, 0.4117647, 0.53333336, 1)
+theme_override_colors/font_shadow_color = Color(0.09411765, 0.09411765, 0.15294118, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("3_rbhq2")
+theme_override_font_sizes/font_size = 22
+text = "LVL 4"
+horizontal_alignment = 1
+
+[node name="Skull" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(364, 408)
+scale = Vector2(3.032735, 3.0327346)
+texture = ExtResource("9_l7lcu")
+
+[node name="Clock" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(363, 442.99997)
+scale = Vector2(2.789889, 2.789889)
+texture = ExtResource("10_ao55q")
+
+[connection signal="mouse_entered" from="CanvasLayer/Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Button" to="." method="_on_button_mouse_exited"]

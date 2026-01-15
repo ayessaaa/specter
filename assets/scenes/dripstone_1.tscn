@@ -1,9 +1,31 @@
-[gd_scene load_steps=10 format=3 uid="uid://2t2xtwh3capm"]
+[gd_scene load_steps=15 format=3 uid="uid://2t2xtwh3capm"]
 
 [ext_resource type="Script" uid="uid://dttuhvpb6adit" path="res://assets/scripts/dripstone_1.gd" id="1_oppse"]
 [ext_resource type="Texture2D" uid="uid://dmb6ithl5jvvk" path="res://assets/sprites/tileset.png" id="1_vvhd3"]
 [ext_resource type="AudioStream" uid="uid://c03c5nr73nhcn" path="res://assets/audio/stones-falling-6375.mp3" id="3_en28a"]
 [ext_resource type="AudioStream" uid="uid://dh72k38v6ybsx" path="res://assets/audio/heavy-ice-rock-falls-419583_qVaZ2NGZ.mp3" id="4_sc644"]
+
+[sub_resource type="Gradient" id="Gradient_sc644"]
+offsets = PackedFloat32Array(0, 0.17535545, 0.8530806, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hh2r3"]
+gradient = SubResource("Gradient_sc644")
+
+[sub_resource type="Gradient" id="Gradient_suaw7"]
+offsets = PackedFloat32Array(0, 0.12796208, 0.8483412, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_auok1"]
+gradient = SubResource("Gradient_suaw7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_b8gwj"]
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+color = Color(0.54509807, 0.60784316, 0.7058824, 1)
+color_ramp = SubResource("GradientTexture1D_auok1")
+color_initial_ramp = SubResource("GradientTexture1D_hh2r3")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_en28a"]
 atlas = ExtResource("1_vvhd3")
@@ -60,6 +82,13 @@ _data = {
 [node name="Dripstone1" type="Area2D"]
 script = ExtResource("1_oppse")
 
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(0, -7)
+amount = 1
+amount_ratio = 0.5
+randomness = 0.5
+process_material = SubResource("ParticleProcessMaterial_b8gwj")
+
 [node name="DripstoneBody" type="RigidBody2D" parent="."]
 collision_mask = 2
 gravity_scale = 0.0
@@ -71,6 +100,7 @@ position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_sc644")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DripstoneBody"]
+visible = false
 polygon = PackedVector2Array(-1, -8, -1, -6, 0, -6, 0, -4, 1, -4, 1, -6, 2, -6, 2, -7, 3, -7, 3, -8)
 
 [node name="StoneFallingSFX" type="AudioStreamPlayer2D" parent="."]

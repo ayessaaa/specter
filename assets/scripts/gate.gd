@@ -10,6 +10,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if Global.key_collected:
 		Global.level_completed = true
 		animated_sprite_2d.play("open")
+		Global.levels_unlocked.append(Global.level)
 		Global.level += 1
 		gate_sfx.play()
 		success_sfx.play()

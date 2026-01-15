@@ -1,12 +1,10 @@
-[gd_scene load_steps=46 format=4 uid="uid://rmes7jsjtd3s"]
+[gd_scene load_steps=45 format=4 uid="uid://rmes7jsjtd3s"]
 
 [ext_resource type="Script" uid="uid://bk4rtaql1hdum" path="res://assets/scripts/level_3.gd" id="1_77fwr"]
 [ext_resource type="Texture2D" uid="uid://bphryqh6g2lkb" path="res://assets/sprites/bg.png" id="2_eilrl"]
 [ext_resource type="PackedScene" uid="uid://nhjxnc34e5km" path="res://assets/scenes/player.tscn" id="3_8fj0k"]
 [ext_resource type="PackedScene" uid="uid://d2gxebgap71k7" path="res://assets/areas/level_completed.tscn" id="4_1ylm7"]
 [ext_resource type="Script" uid="uid://b6my273q08d70" path="res://assets/scripts/camera_2d.gd" id="4_77fwr"]
-[ext_resource type="Texture2D" uid="uid://bl7sprb8xkmlh" path="res://assets/sprites/placeholder.PNG" id="6_u73hj"]
-[ext_resource type="FontFile" uid="uid://x2tle50ieve6" path="res://assets/fonts/ari-w9500-bold.ttf" id="7_qwg83"]
 [ext_resource type="Texture2D" uid="uid://dmb6ithl5jvvk" path="res://assets/sprites/tileset.png" id="10_arxoa"]
 [ext_resource type="Texture2D" uid="uid://1bvrowdg74y8" path="res://assets/sprites/cooldown.png" id="10_cu7p7"]
 [ext_resource type="PackedScene" uid="uid://drtvghwuykwvu" path="res://assets/scenes/killzone.tscn" id="11_hbwwv"]
@@ -16,6 +14,7 @@
 [ext_resource type="FontFile" uid="uid://cddtgeh3yd7k8" path="res://assets/fonts/ari-w9500-display.ttf" id="16_iq35r"]
 [ext_resource type="Texture2D" uid="uid://bn0mfs73ol7wh" path="res://assets/sprites/clock.png" id="17_0yykj"]
 [ext_resource type="Texture2D" uid="uid://wgrghfjfjf5k" path="res://assets/sprites/particles.png" id="17_d0isk"]
+[ext_resource type="AudioStream" uid="uid://oojp2hln26jt" path="res://assets/audio/video-game-select-337214.mp3" id="18_eilrl"]
 [ext_resource type="Texture2D" uid="uid://cjke6iqgmtate" path="res://assets/sprites/skull.png" id="18_rkaoy"]
 [ext_resource type="AudioStream" uid="uid://byiqgutsmp4wi" path="res://assets/audio/sound-of-dripping-water-from-stalactites-in-a-cave-hd-262342.mp3" id="20_1ylm7"]
 
@@ -657,53 +656,11 @@ scale = Vector2(6.4999995, 6.4999995)
 sprite_frames = SubResource("SpriteFrames_77fwr")
 autoplay = "default"
 
-[node name="Tutorial" type="Sprite2D" parent="CanvasLayer"]
-visible = false
-position = Vector2(1005, 98)
-scale = Vector2(0.505833, 0.26153848)
-texture = ExtResource("6_u73hj")
-
-[node name="Label" type="Label" parent="CanvasLayer"]
-visible = false
-offset_left = 904.99994
-offset_top = 55.0
-offset_right = 944.99994
-offset_bottom = 66.0
-scale = Vector2(1.9902526, 1.9902526)
-theme_override_fonts/font = ExtResource("7_qwg83")
-theme_override_font_sizes/font_size = 11
-text = "w"
-horizontal_alignment = 1
-
-[node name="Label2" type="Label" parent="CanvasLayer"]
-visible = false
-offset_left = 862.99994
-offset_top = 81.99999
-offset_right = 902.99994
-offset_bottom = 92.99999
-scale = Vector2(1.9902526, 1.9902526)
-theme_override_fonts/font = ExtResource("7_qwg83")
-theme_override_font_sizes/font_size = 11
-text = "a"
-horizontal_alignment = 1
-
-[node name="Label3" type="Label" parent="CanvasLayer"]
-visible = false
-offset_left = 942.99994
-offset_top = 81.99999
-offset_right = 982.99994
-offset_bottom = 92.99999
-scale = Vector2(1.9902526, 1.9902526)
-theme_override_fonts/font = ExtResource("7_qwg83")
-theme_override_font_sizes/font_size = 11
-text = "d"
-horizontal_alignment = 1
-
 [node name="Minutes" type="Label" parent="CanvasLayer"]
 offset_left = 48.0
-offset_top = 24.0
+offset_top = 52.0
 offset_right = 83.0
-offset_bottom = 35.0
+offset_bottom = 63.0
 scale = Vector2(2.3635128, 2.205264)
 theme_override_fonts/font = ExtResource("16_iq35r")
 theme_override_font_sizes/font_size = 11
@@ -711,9 +668,9 @@ text = "00"
 
 [node name="Seconds" type="Label" parent="CanvasLayer"]
 offset_left = 101.0
-offset_top = 24.0
+offset_top = 52.0
 offset_right = 136.0
-offset_bottom = 35.0
+offset_bottom = 63.0
 scale = Vector2(2.3635128, 2.205264)
 theme_override_fonts/font = ExtResource("16_iq35r")
 theme_override_font_sizes/font_size = 11
@@ -721,9 +678,9 @@ text = "00"
 
 [node name="Colon" type="Label" parent="CanvasLayer"]
 offset_left = 90.0
-offset_top = 24.0
+offset_top = 52.0
 offset_right = 125.0
-offset_bottom = 35.0
+offset_bottom = 63.0
 scale = Vector2(2.3635128, 2.205264)
 theme_override_fonts/font = ExtResource("16_iq35r")
 theme_override_font_sizes/font_size = 11
@@ -731,36 +688,38 @@ text = ":"
 
 [node name="Deaths" type="Label" parent="CanvasLayer"]
 offset_left = 48.0
-offset_top = 54.999996
+offset_top = 83.0
 offset_right = 75.43518
-offset_bottom = 66.0
+offset_bottom = 94.0
 scale = Vector2(2.3635128, 2.205264)
 theme_override_fonts/font = ExtResource("16_iq35r")
 theme_override_font_sizes/font_size = 11
 text = "0"
 
 [node name="Clock" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(30, 34)
+position = Vector2(30.000002, 62.000004)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("17_0yykj")
 
 [node name="Skull" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(31.5, 64)
+position = Vector2(31.500002, 92)
 scale = Vector2(2.7449994, 2.7400007)
 texture = ExtResource("18_rkaoy")
+
+[node name="Level" type="Label" parent="CanvasLayer"]
+offset_left = 19.0
+offset_top = 22.999998
+offset_right = 71.0
+offset_bottom = 34.0
+scale = Vector2(1.4652287, 1.3409109)
+theme_override_fonts/font = ExtResource("16_iq35r")
+theme_override_font_sizes/font_size = 11
+text = "LEVEL 3"
 
 [node name="CamAnimation" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_8pqon")
 }
-
-[node name="Audios" type="Node2D" parent="."]
-
-[node name="DrippingMusic" type="AudioStreamPlayer2D" parent="Audios"]
-stream = ExtResource("20_1ylm7")
-volume_db = -5.0
-autoplay = true
-parameters/looping = true
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_77fwr")
@@ -769,6 +728,17 @@ amount = 100
 texture = ExtResource("17_d0isk")
 visibility_rect = Rect2(-1000, -150, 3100, 250)
 process_material = SubResource("ParticleProcessMaterial_u73hj")
+
+[node name="Audios" type="Node2D" parent="."]
+
+[node name="SelectSFX" type="AudioStreamPlayer2D" parent="Audios"]
+stream = ExtResource("18_eilrl")
+
+[node name="DrippingMusic" type="AudioStreamPlayer2D" parent="Audios"]
+stream = ExtResource("20_1ylm7")
+volume_db = -5.0
+autoplay = true
+parameters/looping = true
 
 [connection signal="body_entered" from="Spikes" to="Player" method="_on_spikes_body_entered"]
 [connection signal="body_exited" from="Spikes" to="Player" method="_on_spikes_body_exited"]

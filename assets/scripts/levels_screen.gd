@@ -84,16 +84,32 @@ func _on_button_1_pressed() -> void:
 
 
 func _on_button_2_pressed() -> void:
-	select_sfx.play()
+	if Global.levels_unlocked.has(2):
+		Global.play_pressed = true
+		Global.level = 2
+		Global.select_sfx = true
+		queue_free()
 
 
 func _on_button_3_pressed() -> void:
-	select_sfx.play()
+	if Global.levels_unlocked.has(3):      
+		Global.play_pressed = true
+		Global.level = 3
+		Global.select_sfx = true
+		queue_free()
 
 
 func _on_button_4_pressed() -> void:
-	select_sfx.play()
+	if Global.levels_unlocked.has(4):
+		Global.play_pressed = true
+		Global.level = 4
+		Global.select_sfx = true
+		queue_free()
 
 
 func _on_button_5_pressed() -> void:
-	select_sfx.play()
+	if Global.levels_unlocked.has(5):
+		Global.play_pressed = true
+		Global.level = 5
+		Global.select_sfx = true
+		queue_free()

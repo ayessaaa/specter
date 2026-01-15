@@ -15,8 +15,8 @@ var dead = false
 var key_collected = false
 
 var level_completed = false
-var level = 4
-var levels_unlocked = [1, 2]
+var level = 1
+var levels_unlocked = [1]
 
 var restart_lvl = false
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=4 uid="uid://vafip83jovvm"]
+[gd_scene load_steps=46 format=4 uid="uid://vafip83jovvm"]
 
 [ext_resource type="PackedScene" uid="uid://nhjxnc34e5km" path="res://assets/scenes/player.tscn" id="1_bpckr"]
 [ext_resource type="Texture2D" uid="uid://bphryqh6g2lkb" path="res://assets/sprites/bg.png" id="1_i37bn"]
@@ -6,9 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dmb6ithl5jvvk" path="res://assets/sprites/tileset.png" id="2_i2sme"]
 [ext_resource type="PackedScene" uid="uid://drtvghwuykwvu" path="res://assets/scenes/killzone.tscn" id="4_4fnwf"]
 [ext_resource type="Script" uid="uid://b6my273q08d70" path="res://assets/scripts/camera_2d.gd" id="4_ld3ys"]
-[ext_resource type="FontFile" uid="uid://x2tle50ieve6" path="res://assets/fonts/ari-w9500-bold.ttf" id="5_01dqv"]
 [ext_resource type="Script" uid="uid://bprftyo17kw14" path="res://assets/scripts/spikes.gd" id="6_hu8pt"]
-[ext_resource type="Texture2D" uid="uid://bl7sprb8xkmlh" path="res://assets/sprites/placeholder.PNG" id="8_djlsd"]
 [ext_resource type="Texture2D" uid="uid://1bvrowdg74y8" path="res://assets/sprites/cooldown.png" id="10_jlkhb"]
 [ext_resource type="Texture2D" uid="uid://wgrghfjfjf5k" path="res://assets/sprites/particles.png" id="11_pwk46"]
 [ext_resource type="PackedScene" uid="uid://dxwrbee330gma" path="res://assets/scenes/key.tscn" id="12_abimq"]
@@ -305,7 +303,7 @@ anim_offset_max = 1.0
 atlas = ExtResource("2_i2sme")
 region = Rect2(48, 176, 8, 8)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_5mc35"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_pwk46"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -360,7 +358,7 @@ region = Rect2(0, 80, 24, 8)
 atlas = ExtResource("10_jlkhb")
 region = Rect2(0, 88, 24, 8)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_c2ora"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_ld3ys"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -548,61 +546,19 @@ process_material = SubResource("ParticleProcessMaterial_jlkhb")
 [node name="BoostIcon" type="AnimatedSprite2D" parent="CanvasLayer"]
 position = Vector2(25, 618)
 scale = Vector2(5, 5)
-sprite_frames = SubResource("SpriteFrames_5mc35")
+sprite_frames = SubResource("SpriteFrames_pwk46")
 
 [node name="BoostCooldown" type="AnimatedSprite2D" parent="CanvasLayer"]
 position = Vector2(123.99999, 614)
 scale = Vector2(6.4999995, 6.4999995)
-sprite_frames = SubResource("SpriteFrames_c2ora")
+sprite_frames = SubResource("SpriteFrames_ld3ys")
 autoplay = "default"
-
-[node name="Tutorial" type="Sprite2D" parent="CanvasLayer"]
-visible = false
-position = Vector2(1005, 98)
-scale = Vector2(0.505833, 0.26153848)
-texture = ExtResource("8_djlsd")
-
-[node name="Label" type="Label" parent="CanvasLayer"]
-visible = false
-offset_left = 904.99994
-offset_top = 55.0
-offset_right = 944.99994
-offset_bottom = 66.0
-scale = Vector2(1.9902526, 1.9902526)
-theme_override_fonts/font = ExtResource("5_01dqv")
-theme_override_font_sizes/font_size = 11
-text = "w"
-horizontal_alignment = 1
-
-[node name="Label2" type="Label" parent="CanvasLayer"]
-visible = false
-offset_left = 862.99994
-offset_top = 81.99999
-offset_right = 902.99994
-offset_bottom = 92.99999
-scale = Vector2(1.9902526, 1.9902526)
-theme_override_fonts/font = ExtResource("5_01dqv")
-theme_override_font_sizes/font_size = 11
-text = "a"
-horizontal_alignment = 1
-
-[node name="Label3" type="Label" parent="CanvasLayer"]
-visible = false
-offset_left = 942.99994
-offset_top = 81.99999
-offset_right = 982.99994
-offset_bottom = 92.99999
-scale = Vector2(1.9902526, 1.9902526)
-theme_override_fonts/font = ExtResource("5_01dqv")
-theme_override_font_sizes/font_size = 11
-text = "d"
-horizontal_alignment = 1
 
 [node name="Minutes" type="Label" parent="CanvasLayer"]
 offset_left = 48.0
-offset_top = 24.0
+offset_top = 52.0
 offset_right = 83.0
-offset_bottom = 35.0
+offset_bottom = 63.0
 scale = Vector2(2.3635128, 2.205264)
 theme_override_fonts/font = ExtResource("16_ayk4g")
 theme_override_font_sizes/font_size = 11
@@ -610,9 +566,9 @@ text = "00"
 
 [node name="Seconds" type="Label" parent="CanvasLayer"]
 offset_left = 101.0
-offset_top = 24.0
+offset_top = 52.0
 offset_right = 136.0
-offset_bottom = 35.0
+offset_bottom = 63.0
 scale = Vector2(2.3635128, 2.205264)
 theme_override_fonts/font = ExtResource("16_ayk4g")
 theme_override_font_sizes/font_size = 11
@@ -620,9 +576,9 @@ text = "00"
 
 [node name="Colon" type="Label" parent="CanvasLayer"]
 offset_left = 90.0
-offset_top = 24.0
+offset_top = 52.0
 offset_right = 125.0
-offset_bottom = 35.0
+offset_bottom = 63.0
 scale = Vector2(2.3635128, 2.205264)
 theme_override_fonts/font = ExtResource("16_ayk4g")
 theme_override_font_sizes/font_size = 11
@@ -630,23 +586,33 @@ text = ":"
 
 [node name="Deaths" type="Label" parent="CanvasLayer"]
 offset_left = 48.0
-offset_top = 54.999996
+offset_top = 83.0
 offset_right = 75.43518
-offset_bottom = 66.0
+offset_bottom = 94.0
 scale = Vector2(2.3635128, 2.205264)
 theme_override_fonts/font = ExtResource("16_ayk4g")
 theme_override_font_sizes/font_size = 11
 text = "0"
 
 [node name="Clock" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(30, 34)
+position = Vector2(30.000002, 62.000004)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("17_pwk46")
 
 [node name="Skull" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(31.5, 64)
+position = Vector2(31.500002, 92)
 scale = Vector2(2.7449994, 2.7400007)
 texture = ExtResource("18_ld3ys")
+
+[node name="Level" type="Label" parent="CanvasLayer"]
+offset_left = 19.0
+offset_top = 22.999998
+offset_right = 71.0
+offset_bottom = 34.0
+scale = Vector2(1.4652287, 1.3409109)
+theme_override_fonts/font = ExtResource("16_ayk4g")
+theme_override_font_sizes/font_size = 11
+text = "TUTORIAL"
 
 [node name="CamAnimation" type="AnimationPlayer" parent="."]
 libraries = {

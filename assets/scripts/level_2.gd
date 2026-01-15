@@ -7,6 +7,7 @@ extends Node2D
 @onready var player: CharacterBody2D = $Player
 @onready var key: Area2D = $Key
 @onready var cam_animation: AnimationPlayer = $CamAnimation
+@onready var select_sfx: AudioStreamPlayer2D = $Audios/SelectSFX
 
 const GHOST = preload("uid://c56psrlw6rj4r")
 
@@ -43,6 +44,10 @@ func _process(delta: float) -> void:
 			#var lvl_2 = LEVEL_2.instantiate()
 			#main_area.add_child(lvl_2)
 			#queue_free()
+			
+	if Global.select_sfx:
+		select_sfx.play()
+		Global.select_sfx = false
 			
 	if Global.level_completed:
 		deaths_lvl.text = str(Global.deaths)

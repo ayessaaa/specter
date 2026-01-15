@@ -116,6 +116,8 @@ func _physics_process(delta: float) -> void:
 		Global.dead = true
 		Global.deaths += 1
 		
+	
+		
 	if animated_sprite_2d.animation == "walking":
 		if direction < 0:
 			dust_right.play("default")
@@ -153,4 +155,3 @@ func _on_timer_timeout() -> void:
 
 func _on_spikes_body_exited(body: Node2D) -> void:
 	on_spike = false
-	

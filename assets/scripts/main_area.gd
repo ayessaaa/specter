@@ -10,6 +10,8 @@ const LEVEL_4 = preload("res://assets/areas/level_4.tscn")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 const LEVELS_SCREEN = preload("res://assets/areas/levels_screen.tscn")
 @onready var screens: Node2D = $Screens
+const TITLE_SCREEN = preload("res://assets/areas/title_screen.tscn")
+
 
 
 var levels_array = [LEVEL_1, LEVEL_2, LEVEL_3, LEVEL_4]
@@ -24,6 +26,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("esc"):
+		var screen = TITLE_SCREEN.instantiate()
+		add_child(screen)
+		for child in levels.get_children():
+			child.queue_free()
+		
 	if Global.level_completed:
 		if Input.is_action_just_pressed("enter"):
 			animation_player.play("blackin")

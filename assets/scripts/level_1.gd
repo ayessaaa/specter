@@ -7,6 +7,7 @@ extends Node2D
 @onready var deaths_lvl: Label = $Player/Camera2D/LevelCompleted/Deaths
 @onready var time_lvl: Label = $Player/Camera2D/LevelCompleted/Time
 @onready var cam_animation: AnimationPlayer = $CamAnimation
+@onready var select_sfx: AudioStreamPlayer2D = $Audios/SelectSFX
 
 var stopwatch = 0.0
 var mins = 0
@@ -30,6 +31,10 @@ func _process(delta: float) -> void:
 			#main_area.add_child(lvl_2)
 			#queue_free()
 			
+	if Global.select_sfx:
+		select_sfx.play()
+		Global.select_sfx = false
+		
 	if Global.level_completed:
 		deaths_lvl.text = str(Global.deaths)
 		time_lvl.text = "%02d" % mins + " : " + "%02d" % secs

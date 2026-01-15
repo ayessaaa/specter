@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://vafip83jovvm"]
+[gd_scene load_steps=48 format=4 uid="uid://vafip83jovvm"]
 
 [ext_resource type="PackedScene" uid="uid://nhjxnc34e5km" path="res://assets/scenes/player.tscn" id="1_bpckr"]
 [ext_resource type="Texture2D" uid="uid://bphryqh6g2lkb" path="res://assets/sprites/bg.png" id="1_i37bn"]
@@ -17,6 +17,7 @@
 [ext_resource type="FontFile" uid="uid://cddtgeh3yd7k8" path="res://assets/fonts/ari-w9500-display.ttf" id="16_ayk4g"]
 [ext_resource type="Texture2D" uid="uid://bn0mfs73ol7wh" path="res://assets/sprites/clock.png" id="17_pwk46"]
 [ext_resource type="Texture2D" uid="uid://cjke6iqgmtate" path="res://assets/sprites/skull.png" id="18_ld3ys"]
+[ext_resource type="AudioStream" uid="uid://oojp2hln26jt" path="res://assets/audio/video-game-select-337214.mp3" id="19_8pqon"]
 [ext_resource type="AudioStream" uid="uid://byiqgutsmp4wi" path="res://assets/audio/sound-of-dripping-water-from-stalactites-in-a-cave-hd-262342.mp3" id="20_8pqon"]
 [ext_resource type="PackedScene" uid="uid://d3abfo27t53il" path="res://assets/scenes/sign.tscn" id="20_bnh17"]
 
@@ -653,6 +654,9 @@ libraries = {
 }
 
 [node name="Audios" type="Node2D" parent="."]
+
+[node name="SelectSFX" type="AudioStreamPlayer2D" parent="Audios"]
+stream = ExtResource("19_8pqon")
 
 [node name="DrippingMusic" type="AudioStreamPlayer2D" parent="Audios"]
 stream = ExtResource("20_8pqon")

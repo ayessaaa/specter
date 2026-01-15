@@ -1,17 +1,16 @@
-[gd_scene load_steps=16 format=3 uid="uid://bekc53rfrv7ks"]
+[gd_scene load_steps=27 format=3 uid="uid://bekc53rfrv7ks"]
 
 [ext_resource type="Script" uid="uid://nyxg0khwcrqd" path="res://assets/scripts/levels_screen.gd" id="1_nastl"]
 [ext_resource type="Texture2D" uid="uid://4afyohkkjmk1" path="res://assets/sprites/Frame 9.png" id="1_rehdr"]
 [ext_resource type="Texture2D" uid="uid://crylbslyjus4o" path="res://assets/sprites/levels1.png" id="2_6g7db"]
-[ext_resource type="Texture2D" uid="uid://dnvducqijxu83" path="res://assets/sprites/textbox.png" id="2_45ygf"]
 [ext_resource type="FontFile" uid="uid://cddtgeh3yd7k8" path="res://assets/fonts/ari-w9500-display.ttf" id="3_rbhq2"]
-[ext_resource type="Texture2D" uid="uid://23eo0opltwxv" path="res://assets/sprites/linedash2.png" id="5_7bb8j"]
 [ext_resource type="Texture2D" uid="uid://cb83qy8bdfehg" path="res://assets/sprites/levels.png" id="5_y25rl"]
 [ext_resource type="Texture2D" uid="uid://dqxfew5lwx855" path="res://assets/sprites/levels2.png" id="6_nastl"]
+[ext_resource type="Texture2D" uid="uid://d0v3sovn36ctb" path="res://assets/sprites/linedash1-export.png" id="7_nastl"]
 [ext_resource type="Texture2D" uid="uid://oi2gdms8fdbo" path="res://assets/sprites/levels3.png" id="7_y25rl"]
 [ext_resource type="Texture2D" uid="uid://d2obhg3i5ydb2" path="res://assets/sprites/levels4.png" id="8_mnns0"]
-[ext_resource type="Texture2D" uid="uid://cjke6iqgmtate" path="res://assets/sprites/skull.png" id="9_l7lcu"]
-[ext_resource type="Texture2D" uid="uid://bn0mfs73ol7wh" path="res://assets/sprites/clock.png" id="10_ao55q"]
+[ext_resource type="AudioStream" uid="uid://r31ktj342hwg" path="res://assets/audio/digital-click-357350.mp3" id="10_7bb8j"]
+[ext_resource type="AudioStream" uid="uid://oojp2hln26jt" path="res://assets/audio/video-game-select-337214.mp3" id="11_nastl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mnns0"]
 atlas = ExtResource("5_y25rl")
@@ -40,6 +39,484 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_nastl"]
+atlas = ExtResource("5_y25rl")
+region = Rect2(56, 24, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y25rl"]
+atlas = ExtResource("5_y25rl")
+region = Rect2(56, 40, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mnns0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nastl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y25rl")
+}],
+"loop": true,
+"name": &"hover",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ao55q"]
+atlas = ExtResource("5_y25rl")
+region = Rect2(72, 24, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hw7kk"]
+atlas = ExtResource("5_y25rl")
+region = Rect2(72, 40, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a0ahw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ao55q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hw7kk")
+}],
+"loop": true,
+"name": &"hover",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gturs"]
+atlas = ExtResource("5_y25rl")
+region = Rect2(88, 24, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r84a2"]
+atlas = ExtResource("5_y25rl")
+region = Rect2(88, 40, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xxh4g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gturs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r84a2")
+}],
+"loop": true,
+"name": &"hover",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_rdyk0"]
+resource_name = "fade_in"
+length = 2.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Line5:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.36666667, 1.2366667, 1.4866667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Button5:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.36666667),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Lvl5:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.36666667, 1.3666667, 1.6166667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Button4:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.36666667),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/Lvl4:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.36666667, 1.3666667, 1.6166667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/Line4:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.36666667, 1.2366667, 1.4866667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer/Button3:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.36666667),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CanvasLayer/Lvl3:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.36666667, 1.1166667, 1.3666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CanvasLayer/Line3:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.36666667, 0.9866667, 1.2366667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CanvasLayer/Button2:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.36666667),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("CanvasLayer/Lvl2:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.85333335, 1.1166667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("CanvasLayer/Line2:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0.36666667, 0.7366667, 0.9866667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("CanvasLayer/Levels:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0.02000001, 0.35333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("CanvasLayer/Tutorial:modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0.36666667, 0.6166667, 0.8666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("CanvasLayer/Button1:modulate")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0.36666667),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("CanvasLayer/SelectLvl:modulate")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0.36666667, 1.8666667, 2.1166668),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_45ygf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Line5:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Button5:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Lvl5:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Button4:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/Lvl4:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/Line4:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer/Button3:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CanvasLayer/Lvl3:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CanvasLayer/Line3:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CanvasLayer/Button2:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("CanvasLayer/Lvl2:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("CanvasLayer/Line2:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("CanvasLayer/Levels:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("CanvasLayer/Tutorial:modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("CanvasLayer/Button1:modulate")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("CanvasLayer/SelectLvl:modulate")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7bb8j"]
+_data = {
+&"RESET": SubResource("Animation_45ygf"),
+&"fade_in": SubResource("Animation_rdyk0")
+}
+
 [node name="LevelsScreen" type="Node2D"]
 script = ExtResource("1_nastl")
 
@@ -50,56 +527,34 @@ z_index = -1
 position = Vector2(576, 324)
 texture = ExtResource("1_rehdr")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -161.0
-offset_top = 141.6842
-offset_right = -125.625
-offset_bottom = 166.06021
-grow_horizontal = 2
-grow_vertical = 2
-rotation = -3.1415927
-scale = Vector2(3.934014, 3.934014)
-pivot_offset = Vector2(12, 2)
-size_flags_horizontal = 4
-texture = ExtResource("2_45ygf")
-region_rect = Rect2(0, 0, 40, 32.06125)
-patch_margin_left = 2
-patch_margin_top = 2
-patch_margin_right = 2
-patch_margin_bottom = 2
-
 [node name="RockShadow1" type="Sprite2D" parent="CanvasLayer"]
-modulate = Color(0.39215687, 0.39215687, 0.39215687, 0.5019608)
-position = Vector2(148.00005, 321)
+modulate = Color(0.4788676, 0.4788676, 0.4788676, 1)
+position = Vector2(198.00003, 319)
 scale = Vector2(3.687499, 3.687499)
 texture = ExtResource("2_6g7db")
 
 [node name="Rock1" type="AnimatedSprite2D" parent="CanvasLayer"]
 z_index = 2
-position = Vector2(144.00002, 317)
+position = Vector2(194, 315)
 scale = Vector2(3.687499, 3.687499)
 sprite_frames = SubResource("SpriteFrames_ao55q")
 autoplay = "default"
 
-[node name="Button" type="Button" parent="CanvasLayer"]
+[node name="Button1" type="Button" parent="CanvasLayer"]
 modulate = Color(1, 1, 1, 0)
 z_index = 3
-offset_left = 111.0
-offset_top = 285.0
-offset_right = 176.0
-offset_bottom = 350.0
+offset_left = 161.0
+offset_top = 283.0
+offset_right = 226.0
+offset_bottom = 348.0
 mouse_default_cursor_shape = 2
 
 [node name="Tutorial" type="Label" parent="CanvasLayer"]
-offset_left = 104.0
-offset_top = 358.0
-offset_right = 232.0
-offset_bottom = 381.0
+modulate = Color(1, 1, 1, 0)
+offset_left = 154.0
+offset_top = 361.0
+offset_right = 282.0
+offset_bottom = 384.0
 scale = Vector2(0.6377405, 0.6377405)
 theme_override_colors/font_color = Color(0.54509807, 0.60784316, 0.7058824, 1)
 theme_override_colors/font_shadow_color = Color(0.09411765, 0.09411765, 0.15294118, 1)
@@ -109,9 +564,8 @@ theme_override_fonts/font = ExtResource("3_rbhq2")
 theme_override_font_sizes/font_size = 22
 text = "TUTORIAL"
 
-[node name="PointLight2D" type="PointLight2D" parent="CanvasLayer"]
-
 [node name="Levels" type="Label" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
 offset_left = 486.0
 offset_top = 64.0
 offset_right = 633.0
@@ -125,33 +579,36 @@ theme_override_font_sizes/font_size = 33
 text = "LEVELS"
 horizontal_alignment = 1
 
-[node name="Line2D" type="Line2D" parent="CanvasLayer"]
-position = Vector2(23.572083, 4)
+[node name="Line2" type="Line2D" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(73.572075, 2)
 scale = Vector2(0.5023256, 1)
 points = PackedVector2Array(403, 322, 610, 322)
 width = 4.0
-texture = ExtResource("5_7bb8j")
+default_color = Color(0.34901962, 0.40784314, 0.5294118, 1)
+texture = ExtResource("7_nastl")
 texture_mode = 2
 sharp_limit = 0.0
 
 [node name="RockShadow2" type="Sprite2D" parent="CanvasLayer"]
-modulate = Color(0.40784314, 0.40784314, 0.40784314, 0.5019608)
-position = Vector2(406, 322)
+modulate = Color(0.4788676, 0.4788676, 0.4788676, 1)
+position = Vector2(456, 320)
 scale = Vector2(3.687, 3.687)
 texture = ExtResource("6_nastl")
 
-[node name="Rock2" type="Sprite2D" parent="CanvasLayer"]
-modulate = Color(0.54901963, 0.54901963, 0.54901963, 1)
+[node name="Rock2" type="AnimatedSprite2D" parent="CanvasLayer"]
 z_index = 2
-position = Vector2(402, 318)
+position = Vector2(452, 316)
 scale = Vector2(3.687, 3.687)
-texture = ExtResource("6_nastl")
+sprite_frames = SubResource("SpriteFrames_mnns0")
+autoplay = "default"
 
 [node name="Lvl2" type="Label" parent="CanvasLayer"]
-offset_left = 365.0
-offset_top = 358.0
-offset_right = 493.0
-offset_bottom = 381.0
+modulate = Color(1, 1, 1, 0)
+offset_left = 408.0
+offset_top = 361.0
+offset_right = 536.0
+offset_bottom = 384.0
 scale = Vector2(0.6377405, 0.6377405)
 theme_override_colors/font_color = Color(0.3529412, 0.4117647, 0.53333336, 1)
 theme_override_colors/font_shadow_color = Color(0.09411765, 0.09411765, 0.15294118, 1)
@@ -162,7 +619,157 @@ theme_override_font_sizes/font_size = 22
 text = "LVL 2"
 horizontal_alignment = 1
 
+[node name="Button2" type="Button" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+z_index = 3
+offset_left = 419.0
+offset_top = 283.0
+offset_right = 484.0
+offset_bottom = 348.0
+mouse_default_cursor_shape = 2
+
+[node name="Line3" type="Line2D" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(327.57205, 2)
+scale = Vector2(0.5023256, 1)
+points = PackedVector2Array(403, 322, 610, 322)
+width = 4.0
+default_color = Color(0.34901962, 0.40784314, 0.5294118, 1)
+texture = ExtResource("7_nastl")
+texture_mode = 2
+sharp_limit = 0.0
+
+[node name="RockShadow3" type="Sprite2D" parent="CanvasLayer"]
+modulate = Color(0.47843137, 0.47843137, 0.47843137, 1)
+position = Vector2(720, 323.00003)
+scale = Vector2(3.687, 3.687)
+texture = ExtResource("7_y25rl")
+
+[node name="Rock3" type="AnimatedSprite2D" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+z_index = 2
+position = Vector2(716, 319)
+scale = Vector2(3.687, 3.687)
+sprite_frames = SubResource("SpriteFrames_a0ahw")
+animation = &"hover"
+autoplay = "default"
+
+[node name="Lvl3" type="Label" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 674.00006
+offset_top = 364.0
+offset_right = 802.00006
+offset_bottom = 387.0
+scale = Vector2(0.6377405, 0.6377405)
+theme_override_colors/font_color = Color(0.3529412, 0.4117647, 0.53333336, 1)
+theme_override_colors/font_shadow_color = Color(0.09411765, 0.09411765, 0.15294118, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("3_rbhq2")
+theme_override_font_sizes/font_size = 22
+text = "LVL 3"
+horizontal_alignment = 1
+
+[node name="Button3" type="Button" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+z_index = 3
+offset_left = 683.0
+offset_top = 288.0
+offset_right = 748.0
+offset_bottom = 353.0
+mouse_default_cursor_shape = 2
+
+[node name="Line4" type="Line2D" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(446.00003, 109.99999)
+rotation = -0.5235988
+scale = Vector2(0.5023256, 1)
+points = PackedVector2Array(403, 322, 610, 322)
+width = 4.0
+default_color = Color(0.34901962, 0.40784314, 0.5294118, 1)
+texture = ExtResource("7_nastl")
+texture_mode = 2
+sharp_limit = 0.0
+
+[node name="RockShadow4" type="Sprite2D" parent="CanvasLayer"]
+modulate = Color(0.4788676, 0.4788676, 0.4788676, 1)
+position = Vector2(943, 207)
+scale = Vector2(3.687, 3.687)
+texture = ExtResource("8_mnns0")
+
+[node name="Rock4" type="AnimatedSprite2D" parent="CanvasLayer"]
+z_index = 2
+position = Vector2(939, 203)
+scale = Vector2(3.687, 3.687)
+sprite_frames = SubResource("SpriteFrames_xxh4g")
+animation = &"hover"
+autoplay = "default"
+
+[node name="Lvl4" type="Label" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 899.00006
+offset_top = 248.00002
+offset_right = 1027.0
+offset_bottom = 271.0
+scale = Vector2(0.6377405, 0.6377405)
+theme_override_colors/font_color = Color(0.3529412, 0.4117647, 0.53333336, 1)
+theme_override_colors/font_shadow_color = Color(0.09411765, 0.09411765, 0.15294118, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("3_rbhq2")
+theme_override_font_sizes/font_size = 22
+text = "LVL 4"
+horizontal_alignment = 1
+
+[node name="Button4" type="Button" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+z_index = 3
+offset_left = 908.0
+offset_top = 171.0
+offset_right = 973.0
+offset_bottom = 236.0
+mouse_default_cursor_shape = 2
+
+[node name="RockShadow5" type="Sprite2D" parent="CanvasLayer"]
+modulate = Color(0.4788676, 0.4788676, 0.4788676, 1)
+position = Vector2(941.50006, 422.5)
+scale = Vector2(3.687499, 3.687499)
+texture = ExtResource("2_6g7db")
+
+[node name="Rock5" type="AnimatedSprite2D" parent="CanvasLayer"]
+z_index = 2
+position = Vector2(937.5, 418.5)
+scale = Vector2(3.687499, 3.687499)
+sprite_frames = SubResource("SpriteFrames_ao55q")
+autoplay = "default"
+
+[node name="Lvl5" type="Label" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 899.00006
+offset_top = 464.00003
+offset_right = 1027.0
+offset_bottom = 487.00003
+scale = Vector2(0.6377405, 0.6377405)
+theme_override_colors/font_color = Color(0.3529412, 0.4117647, 0.53333336, 1)
+theme_override_colors/font_shadow_color = Color(0.09411765, 0.09411765, 0.15294118, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("3_rbhq2")
+theme_override_font_sizes/font_size = 22
+text = "LVL 4"
+horizontal_alignment = 1
+
+[node name="Button5" type="Button" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+z_index = 3
+offset_left = 906.0
+offset_top = 388.0
+offset_right = 971.0
+offset_bottom = 453.0
+mouse_default_cursor_shape = 2
+
 [node name="SelectLvl" type="Label" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
 offset_left = 522.0
 offset_top = 605.0
 offset_right = 734.0
@@ -176,90 +783,43 @@ theme_override_fonts/font = ExtResource("3_rbhq2")
 theme_override_font_sizes/font_size = 22
 text = "SELECT A LEVEL"
 
-[node name="Line2D2" type="Line2D" parent="CanvasLayer"]
-position = Vector2(277.57205, 4)
+[node name="Line5" type="Line2D" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(771.00006, -31.999977)
+rotation = 0.5235988
 scale = Vector2(0.5023256, 1)
 points = PackedVector2Array(403, 322, 610, 322)
 width = 4.0
-texture = ExtResource("5_7bb8j")
+default_color = Color(0.34901962, 0.40784314, 0.5294118, 1)
+texture = ExtResource("7_nastl")
 texture_mode = 2
 sharp_limit = 0.0
 
-[node name="RockShadow3" type="Sprite2D" parent="CanvasLayer"]
-modulate = Color(0.42745098, 0.42745098, 0.42745098, 0.5019608)
-position = Vector2(670, 325.00003)
-scale = Vector2(3.687, 3.687)
-texture = ExtResource("7_y25rl")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_7bb8j")
+}
+autoplay = "fade_in"
 
-[node name="Rock3" type="Sprite2D" parent="CanvasLayer"]
-modulate = Color(0.54901963, 0.54901963, 0.54901963, 1)
-z_index = 2
-position = Vector2(666, 321)
-scale = Vector2(3.687, 3.687)
-texture = ExtResource("7_y25rl")
+[node name="HoverSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_7bb8j")
 
-[node name="Lvl3" type="Label" parent="CanvasLayer"]
-offset_left = 628.0
-offset_top = 358.0
-offset_right = 756.0
-offset_bottom = 381.0
-scale = Vector2(0.6377405, 0.6377405)
-theme_override_colors/font_color = Color(0.3529412, 0.4117647, 0.53333336, 1)
-theme_override_colors/font_shadow_color = Color(0.09411765, 0.09411765, 0.15294118, 1)
-theme_override_constants/shadow_offset_x = 4
-theme_override_constants/shadow_offset_y = 4
-theme_override_fonts/font = ExtResource("3_rbhq2")
-theme_override_font_sizes/font_size = 22
-text = "LVL 3"
-horizontal_alignment = 1
+[node name="SelectSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_nastl")
 
-[node name="Line2D3" type="Line2D" parent="CanvasLayer"]
-position = Vector2(396.00003, 111.99999)
-rotation = -0.5235988
-scale = Vector2(0.5023256, 1)
-points = PackedVector2Array(403, 322, 610, 322)
-width = 4.0
-texture = ExtResource("5_7bb8j")
-texture_mode = 2
-sharp_limit = 0.0
-
-[node name="RockShadow4" type="Sprite2D" parent="CanvasLayer"]
-modulate = Color(0.44934908, 0.44934908, 0.44934908, 0.5)
-position = Vector2(893, 209)
-scale = Vector2(3.687, 3.687)
-texture = ExtResource("8_mnns0")
-
-[node name="Rock4" type="Sprite2D" parent="CanvasLayer"]
-modulate = Color(0.5962391, 0.5962391, 0.5962391, 1)
-z_index = 2
-position = Vector2(889, 205)
-scale = Vector2(3.687, 3.687)
-texture = ExtResource("8_mnns0")
-
-[node name="Lvl4" type="Label" parent="CanvasLayer"]
-offset_left = 843.0
-offset_top = 245.0
-offset_right = 971.0
-offset_bottom = 268.0
-scale = Vector2(0.6377405, 0.6377405)
-theme_override_colors/font_color = Color(0.3529412, 0.4117647, 0.53333336, 1)
-theme_override_colors/font_shadow_color = Color(0.09411765, 0.09411765, 0.15294118, 1)
-theme_override_constants/shadow_offset_x = 4
-theme_override_constants/shadow_offset_y = 4
-theme_override_fonts/font = ExtResource("3_rbhq2")
-theme_override_font_sizes/font_size = 22
-text = "LVL 4"
-horizontal_alignment = 1
-
-[node name="Skull" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(364, 408)
-scale = Vector2(3.032735, 3.0327346)
-texture = ExtResource("9_l7lcu")
-
-[node name="Clock" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(363, 442.99997)
-scale = Vector2(2.789889, 2.789889)
-texture = ExtResource("10_ao55q")
-
-[connection signal="mouse_entered" from="CanvasLayer/Button" to="." method="_on_button_mouse_entered"]
-[connection signal="mouse_exited" from="CanvasLayer/Button" to="." method="_on_button_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/Button1" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Button1" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/Button1" to="." method="_on_button_1_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Button2" to="." method="_on_button_2_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Button2" to="." method="_on_button_2_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Button3" to="." method="_on_button_3_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Button3" to="." method="_on_button_3_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Button4" to="." method="_on_button_4_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Button4" to="." method="_on_button_4_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Button5" to="." method="_on_button_5_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Button5" to="." method="_on_button_5_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/Button5" to="." method="_on_button_5_pressed"]
+[connection signal="finished" from="SelectSFX" to="." method="_on_select_sfx_finished"]

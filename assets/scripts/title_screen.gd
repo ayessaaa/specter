@@ -13,6 +13,7 @@ extends Node2D
 @onready var credits_skull_1: Sprite2D = $CanvasLayer/MiniSkulls/CreditsSkull1
 @onready var credits_skull_2: Sprite2D = $CanvasLayer/MiniSkulls/CreditsSkull2
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var main_animation_player: AnimationPlayer = $"../AnimationPlayer"
 
 @onready var options = [play, levels, settings, credits]
 @onready var mini_skulls = [play_skull_1, play_skull_2, levels_skull_1, levels_skull_2, settings_skull_1, settings_skull_2, credits_skull_1, credits_skull_2]
@@ -89,8 +90,8 @@ func _on_play_button_pressed() -> void:
 func _on_levels_button_pressed() -> void:
 	if fade_in_done:
 		select_sfx.play()
-		Global.levels_pressed = true
 		animation_player.play("fade_out")
+		Global.levels_pressed = true
 
 func _on_settings_button_pressed() -> void:
 	if fade_in_done:

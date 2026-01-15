@@ -16,7 +16,7 @@ var key_collected = false
 
 var level_completed = false
 var level = 4
-var levels_unlocked = [1]
+var levels_unlocked = [1, 2]
 
 var restart_lvl = false
 
@@ -36,3 +36,5 @@ var play_pressed = false
 var levels_pressed = false
 
 var second_text = false
+
+var select_sfx = false

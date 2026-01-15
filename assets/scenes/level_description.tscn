@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://da2xl1mwndbqn"]
+
+[ext_resource type="Texture2D" uid="uid://dnvducqijxu83" path="res://assets/sprites/textbox.png" id="1_4bwvq"]
+[ext_resource type="Texture2D" uid="uid://cjke6iqgmtate" path="res://assets/sprites/skull.png" id="2_ouh0s"]
+[ext_resource type="Texture2D" uid="uid://bn0mfs73ol7wh" path="res://assets/sprites/clock.png" id="3_jyk72"]
+
+[node name="LevelDescription" type="Node2D"]
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 88.999985
+offset_top = 88.00001
+offset_right = 124.374985
+offset_bottom = 112.376015
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -3.1415927
+scale = Vector2(3.934014, 3.934014)
+pivot_offset = Vector2(12, 2)
+size_flags_horizontal = 4
+texture = ExtResource("1_4bwvq")
+region_rect = Rect2(0, 0, 40, 32.06125)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="Skull" type="Sprite2D" parent="."]
+position = Vector2(36.159576, 34.13098)
+scale = Vector2(3.032735, 3.0327346)
+texture = ExtResource("2_ouh0s")
+
+[node name="Clock" type="Sprite2D" parent="."]
+position = Vector2(35.159546, 67.13092)
+scale = Vector2(2.789889, 2.789889)
+texture = ExtResource("3_jyk72")

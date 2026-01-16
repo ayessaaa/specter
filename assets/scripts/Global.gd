@@ -34,7 +34,9 @@ var last_key_pos = null
 
 var play_pressed = false
 var levels_pressed = false
+var settings_pressed = false
 
 var second_text = false
 
 var select_sfx = false
+var back_to_title = false

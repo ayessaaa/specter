@@ -733,11 +733,13 @@ process_material = SubResource("ParticleProcessMaterial_u73hj")
 
 [node name="SelectSFX" type="AudioStreamPlayer2D" parent="Audios"]
 stream = ExtResource("18_eilrl")
+bus = &"SFX"
 
 [node name="DrippingMusic" type="AudioStreamPlayer2D" parent="Audios"]
 stream = ExtResource("20_1ylm7")
 volume_db = -5.0
 autoplay = true
+bus = &"Music"
 parameters/looping = true
 
 [connection signal="body_entered" from="Spikes" to="Player" method="_on_spikes_body_entered"]

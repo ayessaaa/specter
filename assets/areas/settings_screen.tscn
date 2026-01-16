@@ -1,0 +1,257 @@
+[gd_scene load_steps=9 format=3 uid="uid://cbmdlbdth5wye"]
+
+[ext_resource type="Script" uid="uid://da04hkospwent" path="res://assets/scripts/settings_screen.gd" id="1_rbyes"]
+[ext_resource type="Texture2D" uid="uid://bx63pthubf2bh" path="res://assets/sprites/Frame 8.png" id="2_7be0f"]
+[ext_resource type="FontFile" uid="uid://cddtgeh3yd7k8" path="res://assets/fonts/ari-w9500-display.ttf" id="2_jxt4s"]
+[ext_resource type="PackedScene" uid="uid://1drai3kc7g84" path="res://assets/scenes/volume_slider.tscn" id="2_n2ygl"]
+[ext_resource type="AudioStream" uid="uid://r31ktj342hwg" path="res://assets/audio/digital-click-357350.mp3" id="5_7be0f"]
+
+[sub_resource type="Animation" id="Animation_k1xua"]
+resource_name = "fade_in"
+length = 1.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sliders/SFX:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 1.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sliders/Music:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.76666665, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sliders/Master:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Settings:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DoneLabel:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.5, 1.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7be0f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sliders/SFX:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sliders/Music:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sliders/Master:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Settings:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DoneLabel:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1c5oc"]
+_data = {
+&"RESET": SubResource("Animation_7be0f"),
+&"fade_in": SubResource("Animation_k1xua")
+}
+
+[node name="SettingsScreen" type="Node2D"]
+script = ExtResource("1_rbyes")
+
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+texture = ExtResource("2_7be0f")
+
+[node name="Settings" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 486.0
+offset_top = 64.0
+offset_right = 675.0
+offset_bottom = 97.0
+scale = Vector2(1.2479707, 1.2479707)
+theme_override_colors/font_shadow_color = Color(0.09411765, 0.09411765, 0.15294118, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("2_jxt4s")
+theme_override_font_sizes/font_size = 33
+text = "SETTINGS"
+horizontal_alignment = 1
+
+[node name="Sliders" type="VBoxContainer" parent="."]
+offset_left = 380.0
+offset_top = 178.0
+offset_right = 794.0
+offset_bottom = 387.0
+size_flags_horizontal = 0
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Master" type="VBoxContainer" parent="Sliders"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="MasterLabel" type="Label" parent="Sliders/Master"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_jxt4s")
+theme_override_font_sizes/font_size = 22
+text = "Master"
+
+[node name="Master" parent="Sliders/Master" instance=ExtResource("2_n2ygl")]
+layout_mode = 2
+bus_name = "Master"
+
+[node name="Music" type="VBoxContainer" parent="Sliders"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="MusicLabel" type="Label" parent="Sliders/Music"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_jxt4s")
+theme_override_font_sizes/font_size = 22
+text = "Music"
+
+[node name="Music" parent="Sliders/Music" instance=ExtResource("2_n2ygl")]
+layout_mode = 2
+bus_name = "Music"
+
+[node name="SFX" type="VBoxContainer" parent="Sliders"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="SFXLabel" type="Label" parent="Sliders/SFX"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_jxt4s")
+theme_override_font_sizes/font_size = 22
+text = "SFX"
+
+[node name="SFX" parent="Sliders/SFX" instance=ExtResource("2_n2ygl")]
+layout_mode = 2
+bus_name = "SFX"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_1c5oc")
+}
+autoplay = "fade_in"
+
+[node name="HoverSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_7be0f")
+bus = &"SFX"
+
+[node name="DoneLabel" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 486.0
+offset_top = 489.0
+offset_right = 675.0
+offset_bottom = 511.0
+scale = Vector2(1.2479707, 1.2479707)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.09411765, 0.09411765, 0.15294118, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("2_jxt4s")
+theme_override_font_sizes/font_size = 22
+text = "DONE"
+horizontal_alignment = 1
+
+[node name="DoneButton" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 547.0
+offset_top = 481.0
+offset_right = 664.0
+offset_bottom = 520.0
+mouse_default_cursor_shape = 2
+
+[connection signal="mouse_entered" from="Sliders/Master/Master" to="." method="_on_master_mouse_entered"]
+[connection signal="mouse_entered" from="Sliders/Music/Music" to="." method="_on_music_mouse_entered"]
+[connection signal="mouse_entered" from="Sliders/SFX/SFX" to="." method="_on_sfx_mouse_entered"]
+[connection signal="mouse_entered" from="DoneButton" to="." method="_on_done_button_mouse_entered"]
+[connection signal="mouse_exited" from="DoneButton" to="." method="_on_done_button_mouse_exited"]
+[connection signal="pressed" from="DoneButton" to="." method="_on_done_button_pressed"]

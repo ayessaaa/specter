@@ -623,9 +623,11 @@ libraries = {
 
 [node name="SelectSFX" type="AudioStreamPlayer2D" parent="Audios"]
 stream = ExtResource("19_8pqon")
+bus = &"SFX"
 
 [node name="DrippingMusic" type="AudioStreamPlayer2D" parent="Audios"]
 stream = ExtResource("20_8pqon")
 volume_db = -5.0
 autoplay = true
+bus = &"Music"
 parameters/looping = true

@@ -96,6 +96,8 @@ func _on_levels_button_pressed() -> void:
 func _on_settings_button_pressed() -> void:
 	if fade_in_done:
 		select_sfx.play()
+		animation_player.play("fade_out")
+		Global.settings_pressed = true
 
 func _on_credits_button_pressed() -> void:
 	if fade_in_done:

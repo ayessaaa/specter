@@ -362,20 +362,25 @@ wait_time = 0.25
 
 [node name="JumpSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_4wcc8")
+bus = &"SFX"
 
 [node name="DeathSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_0gfpk")
+bus = &"SFX"
 
 [node name="BoostSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_8sknh")
+bus = &"SFX"
 
 [node name="RunningSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_0gfpk")
 volume_db = -5.0
+bus = &"SFX"
 parameters/looping = true
 
 [node name="LandingSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_0hrit")
+bus = &"SFX"
 
 [node name="BoostTimer" type="Timer" parent="."]
 

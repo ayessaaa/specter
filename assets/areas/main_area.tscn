@@ -85,6 +85,7 @@ texture = ExtResource("3_2hqj5")
 stream = ExtResource("4_ydx85")
 volume_db = 5.0
 autoplay = true
+bus = &"Music"
 parameters/looping = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

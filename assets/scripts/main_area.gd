@@ -11,6 +11,7 @@ const LEVEL_4 = preload("res://assets/areas/level_4.tscn")
 const LEVELS_SCREEN = preload("res://assets/areas/levels_screen.tscn")
 @onready var screens: Node2D = $Screens
 const TITLE_SCREEN = preload("res://assets/areas/title_screen.tscn")
+const SETTINGS_SCREEN = preload("res://assets/areas/settings_screen.tscn")
 
 
 
@@ -26,11 +27,15 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("esc"):
+	if Input.is_action_just_pressed("esc") or Global.back_to_title:
+		Global.back_to_title = false
 		var screen = TITLE_SCREEN.instantiate()
 		add_child(screen)
 		for child in levels.get_children():
 			child.queue_free()
+		for child in screens.get_children():
+			child.queue_free()
+		restart_global()
 		
 	if Global.level_completed:
 		if Input.is_action_just_pressed("enter"):
@@ -54,6 +59,11 @@ func _process(delta: float) -> void:
 		var screen = LEVELS_SCREEN.instantiate()
 		screens.add_child(screen)
 		Global.levels_pressed = false
+		
+	if Global.settings_pressed:
+		var screen = SETTINGS_SCREEN.instantiate()
+		screens.add_child(screen)
+		Global.settings_pressed = false
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
@@ -72,5 +82,24 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		
 		animation_player.play("blackout")
 		Global.level_completed = false
+		
+func restart_global():
+	Global.dead = false
+	Global.key_collected = false
+	Global.level_completed = false
+	Global.restart_lvl = false
+	Global.deaths = 0
+	Global.lvl_stopwatch = 0.0
+	Global.position_array = []
+	Global.position_array_current = []
+	Global.direction_array = []
+	Global.direction_array_current = []
+	Global.last_key_pos = null
+	Global.play_pressed = false
+	Global.levels_pressed = false
+	Global.settings_pressed = false
+	Global.second_text = false
+	Global.select_sfx = false
+	Global.back_to_title = false
 		
 	

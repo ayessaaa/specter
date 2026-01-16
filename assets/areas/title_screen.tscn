@@ -859,6 +859,7 @@ offset_left = 466.0
 offset_top = 377.0
 offset_right = 708.0
 offset_bottom = 432.0
+mouse_default_cursor_shape = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="LevelsButton" type="Button" parent="CanvasLayer/Options"]
@@ -867,6 +868,7 @@ offset_left = 466.0
 offset_top = 438.0
 offset_right = 708.0
 offset_bottom = 493.0
+mouse_default_cursor_shape = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="SettingsButton" type="Button" parent="CanvasLayer/Options"]
@@ -875,6 +877,7 @@ offset_left = 466.0
 offset_top = 493.0
 offset_right = 708.0
 offset_bottom = 548.0
+mouse_default_cursor_shape = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="CreditsButton" type="Button" parent="CanvasLayer/Options"]
@@ -883,6 +886,7 @@ offset_left = 466.0
 offset_top = 552.0
 offset_right = 708.0
 offset_bottom = 607.0
+mouse_default_cursor_shape = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="MiniSkulls" type="Node2D" parent="CanvasLayer"]
@@ -951,15 +955,19 @@ autoplay = "loop"
 
 [node name="WhooshSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_nst8e")
+bus = &"SFX"
 
 [node name="HoverSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_wx6pt")
+bus = &"SFX"
 
 [node name="SelectSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_alhq4")
+bus = &"SFX"
 
 [node name="BrickSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_y2kpm")
+bus = &"SFX"
 
 [connection signal="mouse_entered" from="CanvasLayer/Options/PlayButton" to="." method="_on_play_button_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/Options/PlayButton" to="." method="_on_play_button_pressed"]

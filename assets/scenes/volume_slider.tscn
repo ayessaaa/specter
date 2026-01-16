@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://1drai3kc7g84"]
+
+[ext_resource type="Texture2D" uid="uid://d27yyn8uspu1x" path="res://assets/sprites/skull 3.png" id="1_fiy35"]
+[ext_resource type="Script" uid="uid://bd2tfo7tvsf4a" path="res://assets/scripts/volume_slider.gd" id="1_ndl8x"]
+
+[node name="VolumeSlider" type="HSlider"]
+offset_right = 263.0
+offset_bottom = 8.0
+theme_override_icons/grabber = ExtResource("1_fiy35")
+theme_override_icons/grabber_highlight = ExtResource("1_fiy35")
+max_value = 1.0
+step = 0.001
+script = ExtResource("1_ndl8x")
+
+[connection signal="value_changed" from="." to="." method="_on_value_changed"]

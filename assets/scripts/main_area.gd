@@ -12,6 +12,7 @@ const LEVELS_SCREEN = preload("res://assets/areas/levels_screen.tscn")
 @onready var screens: Node2D = $Screens
 const TITLE_SCREEN = preload("res://assets/areas/title_screen.tscn")
 const SETTINGS_SCREEN = preload("res://assets/areas/settings_screen.tscn")
+const CREDITS_SCREEN = preload("res://assets/areas/credits_screen.tscn")
 
 
 
@@ -64,6 +65,11 @@ func _process(delta: float) -> void:
 		var screen = SETTINGS_SCREEN.instantiate()
 		screens.add_child(screen)
 		Global.settings_pressed = false
+		
+	if Global.credits_pressed:
+		var screen = CREDITS_SCREEN.instantiate()
+		screens.add_child(screen)
+		Global.credits_pressed = false
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
@@ -98,6 +104,7 @@ func restart_global():
 	Global.play_pressed = false
 	Global.levels_pressed = false
 	Global.settings_pressed = false
+	Global.credits_pressed = false
 	Global.second_text = false
 	Global.select_sfx = false
 	Global.back_to_title = false

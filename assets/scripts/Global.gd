@@ -35,6 +35,7 @@ var last_key_pos = null
 var play_pressed = false
 var levels_pressed = false
 var settings_pressed = false
+var credits_pressed = false
 
 var second_text = false
 

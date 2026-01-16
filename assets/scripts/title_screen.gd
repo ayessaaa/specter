@@ -102,6 +102,8 @@ func _on_settings_button_pressed() -> void:
 func _on_credits_button_pressed() -> void:
 	if fade_in_done:
 		select_sfx.play()
+		animation_player.play("fade_out")
+		Global.credits_pressed = true
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:

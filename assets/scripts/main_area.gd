@@ -7,6 +7,7 @@ const LEVEL_1 = preload("res://assets/areas/level_1.tscn")
 const LEVEL_2 = preload("res://assets/areas/level_2.tscn")
 const LEVEL_3 = preload("res://assets/areas/level_3.tscn")
 const LEVEL_4 = preload("res://assets/areas/level_4.tscn")
+const LEVEL_5 = preload("res://assets/areas/level_5.tscn")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 const LEVELS_SCREEN = preload("res://assets/areas/levels_screen.tscn")
 @onready var screens: Node2D = $Screens
@@ -16,7 +17,7 @@ const CREDITS_SCREEN = preload("res://assets/areas/credits_screen.tscn")
 
 
 
-var levels_array = [LEVEL_1, LEVEL_2, LEVEL_3, LEVEL_4]
+var levels_array = [LEVEL_1, LEVEL_2, LEVEL_3, LEVEL_4, LEVEL_5]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

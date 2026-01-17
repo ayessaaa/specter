@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://c56psrlw6rj4r"]
+[gd_scene load_steps=14 format=3 uid="uid://c56psrlw6rj4r"]
 
 [ext_resource type="Texture2D" uid="uid://dheo3rtsde7lt" path="res://assets/sprites/tileset-Recovered.png" id="1_oph3h"]
+[ext_resource type="Script" uid="uid://b7pvom6spgy2q" path="res://assets/scripts/ghost.gd" id="1_sopgx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sopgx"]
 atlas = ExtResource("1_oph3h")
@@ -129,6 +130,7 @@ fill_from = Vector2(0.517094, 0.4957265)
 fill_to = Vector2(0.82905984, 0.21794872)
 
 [node name="Ghost" type="CharacterBody2D"]
+script = ExtResource("1_sopgx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0)

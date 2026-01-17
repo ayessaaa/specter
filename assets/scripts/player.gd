@@ -1,6 +1,7 @@
 extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @export var current_dir = 1
+@export var body = "player"
 @onready var timer: Timer = $Timer
 @onready var boost_cooldown: AnimatedSprite2D = $"../CanvasLayer/BoostCooldown"
 

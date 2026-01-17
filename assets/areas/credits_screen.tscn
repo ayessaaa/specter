@@ -415,7 +415,7 @@ texture = ExtResource("8_tiddg")
 
 [node name="Name4" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(679, 396.9999)
+position = Vector2(679, 404.9999)
 rotation = -0.08499096
 scale = Vector2(2.5315418, 2.5315418)
 texture = ExtResource("9_jkqyj")

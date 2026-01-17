@@ -14,13 +14,16 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for i in len(rock_lvls):
-		if Global.levels_unlocked.has(i+1):
-			rock_lvls[i].modulate = Color(1, 1, 1, 1)
-			if i > 0:
-				canvas_layer.get_node("Line"+str(i+1)).default_color = Color(1, 1, 1)
-		else:
-			rock_lvls[i].modulate = Color(0.262, 0.262, 0.262)
+	#for i in len(rock_lvls):
+		#if Global.levels_unlocked.has(i+1):
+			#rock_lvls[i].modulate = Color(1, 1, 1, 1)
+			#if i > 0:
+				#canvas_layer.get_node("Line"+str(i+1)).default_color = Color(1, 1, 1)
+		#else:
+			#rock_lvls[i].modulate = Color(0.262, 0.262, 0.262)
+	pass
+			
+	
 			
 		
 		
@@ -28,8 +31,16 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
-
+	if Input.is_action_pressed("z"):
+		Global.levels_unlocked = [1, 2, 3, 4, 5]
+		
+	for i in len(rock_lvls):
+		if Global.levels_unlocked.has(i+1):
+			rock_lvls[i].modulate = Color(1, 1, 1, 1)
+			if i > 0:
+				canvas_layer.get_node("Line"+str(i+1)).default_color = Color(1, 1, 1)
+		else:
+			rock_lvls[i].modulate = Color(0.262, 0.262, 0.262)
 
 func _on_button_mouse_entered() -> void:
 	rock_1.play("hover")

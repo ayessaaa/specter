@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cmejr6gbnm7vd"]
+[gd_scene load_steps=10 format=3 uid="uid://cmejr6gbnm7vd"]
 
 [ext_resource type="Script" uid="uid://c26nx7g7wnkbq" path="res://assets/scripts/main_area.gd" id="1_2hqj5"]
 [ext_resource type="PackedScene" uid="uid://djgf0jno1q4om" path="res://assets/areas/title_screen.tscn" id="2_symrv"]
 [ext_resource type="Texture2D" uid="uid://4afyohkkjmk1" path="res://assets/sprites/Frame 9.png" id="3_2hqj5"]
 [ext_resource type="AudioStream" uid="uid://ri7n8gcaf10v" path="res://assets/audio/ethereal-uplifting-loop-275529 (1) (1).mp3" id="4_ydx85"]
+[ext_resource type="PackedScene" uid="uid://k63b55qncfha" path="res://assets/areas/pause_screen.tscn" id="5_y01sb"]
 
 [sub_resource type="Animation" id="Animation_y01sb"]
 length = 0.001
@@ -87,5 +88,7 @@ volume_db = 5.0
 autoplay = true
 bus = &"Music"
 parameters/looping = true
+
+[node name="PauseScreen" parent="." instance=ExtResource("5_y01sb")]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

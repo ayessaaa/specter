@@ -30,18 +30,33 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("esc") or Global.back_to_title:
-		Global.back_to_title = false
-		var screen = TITLE_SCREEN.instantiate()
+		print("menu")
+		if Global.title_screen:
+			print(Global.title_screen)
+			Global.back_to_title = false
+			var screen = TITLE_SCREEN.instantiate()
+			add_child(screen)
+			for child in levels.get_children():
+				child.queue_free()
+			for child in screens.get_children():
+				child.queue_free()
+			Global.in_game = false
+			Global.title_screen = true
+			restart_global()
+		
+	if Global.level_completed:
+		if Input.is_action_just_pressed("enter"):
+			animation_player.play("blackin")
+			
+	if Global.go_to_levels:
+		Global.go_to_levels = false
+		var screen = LEVELS_SCREEN.instantiate()
 		add_child(screen)
 		for child in levels.get_children():
 			child.queue_free()
 		for child in screens.get_children():
 			child.queue_free()
-		restart_global()
-		
-	if Global.level_completed:
-		if Input.is_action_just_pressed("enter"):
-			animation_player.play("blackin")
+		Global.in_game = false
 			
 			
 	if Global.restart_lvl:
@@ -71,6 +86,7 @@ func _process(delta: float) -> void:
 		var screen = CREDITS_SCREEN.instantiate()
 		screens.add_child(screen)
 		Global.credits_pressed = false
+		
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:

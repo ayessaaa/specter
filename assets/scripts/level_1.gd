@@ -21,6 +21,9 @@ func _ready() -> void:
 	if Global.deaths == 0:
 		cam_animation.play("fade_in")
 		print("fadein")
+		
+	Global.in_game = true
+	Global.title_screen = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

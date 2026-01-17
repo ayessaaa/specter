@@ -7,6 +7,7 @@ extends Node2D
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
 @onready var hover_sfx: AudioStreamPlayer2D = $HoverSFX
 @onready var select_sfx: AudioStreamPlayer2D = $SelectSFX
+@onready var back: Label = $CanvasLayer/Back
 
 @onready var rock_lvls = [rock_1, rock_2, rock_3, rock_4, rock_5]
 #@onready var lines = [line_2, line_3, line_4]
@@ -124,3 +125,17 @@ func _on_button_5_pressed() -> void:
 		Global.level = 5
 		Global.select_sfx = true
 		queue_free()
+
+
+func _on_back_button_mouse_entered() -> void:
+	back.modulate = Color(0.753, 0.796, 0.863, 1.0)
+	hover_sfx.play()
+
+
+func _on_back_button_mouse_exited() -> void:
+	back.modulate = Color(0.258,0.328,0.456)
+	hover_sfx.play()
+
+
+func _on_back_button_pressed() -> void:
+	Global.back_to_title = true

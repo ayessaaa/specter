@@ -38,7 +38,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	
-	if Global.dead:
+	if Global.dead or Global.pause:
 		return
 		
 	if Global.level_completed:

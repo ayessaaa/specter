@@ -305,7 +305,7 @@ tracks/14/keys = {
 tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("CanvasLayer/SelectLvl:modulate")
+tracks/15/path = NodePath("CanvasLayer/Back:modulate")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
@@ -501,7 +501,7 @@ tracks/14/keys = {
 tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("CanvasLayer/SelectLvl:modulate")
+tracks/15/path = NodePath("CanvasLayer/Back:modulate")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
@@ -767,20 +767,19 @@ offset_right = 971.0
 offset_bottom = 453.0
 mouse_default_cursor_shape = 2
 
-[node name="SelectLvl" type="Label" parent="CanvasLayer"]
+[node name="Back" type="Label" parent="CanvasLayer"]
 modulate = Color(1, 1, 1, 0)
-offset_left = 522.0
-offset_top = 605.0
-offset_right = 734.0
-offset_bottom = 628.0
+offset_left = 536.0
+offset_top = 558.00006
+offset_right = 676.0
+offset_bottom = 602.00006
 scale = Vector2(0.6377405, 0.6377405)
-theme_override_colors/font_color = Color(0.54509807, 0.60784316, 0.7058824, 1)
 theme_override_colors/font_shadow_color = Color(0.09411765, 0.09411765, 0.15294118, 1)
 theme_override_constants/shadow_offset_x = 4
 theme_override_constants/shadow_offset_y = 4
 theme_override_fonts/font = ExtResource("3_rbhq2")
-theme_override_font_sizes/font_size = 22
-text = "SELECT A LEVEL"
+theme_override_font_sizes/font_size = 44
+text = "BACK"
 
 [node name="Line5" type="Line2D" parent="CanvasLayer"]
 modulate = Color(1, 1, 1, 0)
@@ -793,6 +792,14 @@ default_color = Color(0.34901962, 0.40784314, 0.5294118, 1)
 texture = ExtResource("7_nastl")
 texture_mode = 2
 sharp_limit = 0.0
+
+[node name="BackButton" type="Button" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 531.0
+offset_top = 553.0
+offset_right = 631.0
+offset_bottom = 587.0
+mouse_default_cursor_shape = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -823,4 +830,7 @@ bus = &"SFX"
 [connection signal="mouse_entered" from="CanvasLayer/Button5" to="." method="_on_button_5_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/Button5" to="." method="_on_button_5_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/Button5" to="." method="_on_button_5_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/BackButton" to="." method="_on_back_button_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/BackButton" to="." method="_on_back_button_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="finished" from="SelectSFX" to="." method="_on_select_sfx_finished"]

@@ -41,3 +41,9 @@ var second_text = false
 
 var select_sfx = false
 var back_to_title = false
+
+var in_game = false
+var title_screen = true
+var pause = false
+
+var go_to_levels = false

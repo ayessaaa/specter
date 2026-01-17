@@ -37,6 +37,9 @@ func _ready() -> void:
 	if Global.last_key_pos != null:
 		key.position = Global.last_key_pos
 		print("last pos")
+		
+	Global.in_game = true
+	Global.title_screen = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -38,6 +38,8 @@ func _ready() -> void:
 		key.position = Global.last_key_pos
 		print("last pos")
 
+	Global.in_game = true
+	Global.title_screen = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

@@ -24,6 +24,9 @@ func _ready() -> void:
 		
 	Global.in_game = true
 	Global.title_screen = false
+	Global.levels_screen = false
+	Global.settings_screen = false
+	Global.credits_screen = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

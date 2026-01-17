@@ -27,6 +27,6 @@ func _on_dripstone_1_2_body_entered(body: Node2D) -> void:
 	dripstone_1_2.get_node("StoneFallingSFX").play()
 
 
-func _on_dripstone_1_3_body_entered(body: Node2D) -> void:
-	dripstone_1_3_body.gravity_scale = 1
-	dripstone_1_3.get_node("StoneFallingSFX").play()
+func _on_dripstone_1_1_body_entered(body: Node2D) -> void:
+	dripstone_1_1_body.gravity_scale = 1
+	dripstone_1_1.get_node("StoneFallingSFX").play()

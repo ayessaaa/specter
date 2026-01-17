@@ -31,9 +31,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("esc") or Global.back_to_title:
 		print("menu")
-		if Global.title_screen:
-			print(Global.title_screen)
+		if (!Global.title_screen and !Global.in_game) or Global.levels_screen or Global.settings_screen or Global.credits_screen or Global.game_completed: 
+			Global.levels_screen = false
+			Global.credits_screen = false
+			Global.settings_screen = false
 			Global.back_to_title = false
+			Global.game_completed = false
 			var screen = TITLE_SCREEN.instantiate()
 			add_child(screen)
 			for child in levels.get_children():
@@ -50,12 +53,12 @@ func _process(delta: float) -> void:
 			
 	if Global.go_to_levels:
 		Global.go_to_levels = false
-		var screen = LEVELS_SCREEN.instantiate()
-		add_child(screen)
 		for child in levels.get_children():
 			child.queue_free()
 		for child in screens.get_children():
 			child.queue_free()
+		var screen = LEVELS_SCREEN.instantiate()
+		screens.add_child(screen)
 		Global.in_game = false
 			
 			
@@ -99,12 +102,19 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		Global.direction_array = []
 		Global.direction_array_current = []
 		
-		var lvl = levels_array[Global.level-1].instantiate()
-		levels.add_child(lvl)
-		levels.get_child(0).queue_free()
+		if Global.level > len(levels_array):
+			Global.back_to_title = true
+			Global.game_completed = true
+			Global.level = 1
+			animation_player.play("blackout")
+		else:
 		
-		animation_player.play("blackout")
-		Global.level_completed = false
+			var lvl = levels_array[Global.level-1].instantiate()
+			levels.add_child(lvl)
+			levels.get_child(0).queue_free()
+			
+			animation_player.play("blackout")
+			Global.level_completed = false
 		
 func restart_global():
 	Global.dead = false
@@ -125,5 +135,14 @@ func restart_global():
 	Global.second_text = false
 	Global.select_sfx = false
 	Global.back_to_title = false
+	Global.in_game = false
+	Global.title_screen = true
+	Global.pause = false
+
+	Global.go_to_levels = false
+	Global.levels_screen = false
+	Global.settings_screen = false
+	Global.credits_screen = false
+
 		
 	

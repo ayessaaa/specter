@@ -47,3 +47,8 @@ var title_screen = true
 var pause = false
 
 var go_to_levels = false
+var levels_screen = false
+var settings_screen = false
+var credits_screen = false
+
+var game_completed = false

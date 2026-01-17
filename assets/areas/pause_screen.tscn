@@ -398,6 +398,42 @@ tracks/15/keys = {
 "update": 0,
 "values": [Vector2(464, -135)]
 }
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("CanvasLayer/Levels:modulate")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.54509807, 0.60784316, 0.7058824, 1)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("CanvasLayer/Resume:modulate")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.7529412, 0.79607844, 0.8627451, 1)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("CanvasLayer/Menu:modulate")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.54509807, 0.60784316, 0.7058824, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_e63pp"]
 resource_name = "fade_out"
@@ -557,6 +593,42 @@ tracks/12/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(706.7306, 453.78143), Vector2(706.7306, -41.218567)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("CanvasLayer/MenuButton:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0.07361741, 0.57),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(693, 410), Vector2(693, -83)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("CanvasLayer/LevelsButton:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0.07361741, 0.57),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(464, 410), Vector2(464, -83)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("CanvasLayer/ResumeButton:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0.07361741, 0.57),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(567, 405), Vector2(567, -88)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x0gqj"]

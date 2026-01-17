@@ -22,7 +22,7 @@ func _ready() -> void:
 				#canvas_layer.get_node("Line"+str(i+1)).default_color = Color(1, 1, 1)
 		#else:
 			#rock_lvls[i].modulate = Color(0.262, 0.262, 0.262)
-	pass
+		Global.levels_screen = true
 			
 	
 			
@@ -138,4 +138,6 @@ func _on_back_button_mouse_exited() -> void:
 
 
 func _on_back_button_pressed() -> void:
+	
 	Global.back_to_title = true
+	

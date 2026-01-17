@@ -56,17 +56,20 @@ func _on_levels_button_pressed() -> void:
 	animation_player.play("fade_out")
 	Global.go_to_levels = true
 	Global.pause = false
+	get_viewport().gui_release_focus()
 
 
 func _on_resume_button_pressed() -> void:
 	select_sfx.play()
 	animation_player.play("fade_out")
 	Global.pause = false
+	get_viewport().gui_release_focus()
 
 
 func _on_menu_button_pressed() -> void:
 	select_sfx.play()
 	animation_player.play("fade_out")
 	Global.back_to_title = true
-	Global.title_screen = true
 	Global.pause = false
+	Global.in_game = false
+	get_viewport().gui_release_focus()
